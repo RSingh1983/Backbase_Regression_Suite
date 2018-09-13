@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+
+<UIElements>
+
+    <Element type="input">
+
+        <selector>
+            <element_locator_type>id</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="combo">
+
+        <selector>
+            <element_locator_type>xpath</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="click">
+
+        <!-- Selectors for Top Fixed Header Menu Elements-->
+        <selector>
+            <keyword>Header_Menu1_Vijesti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu2_Teme</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu3_Mišljenja</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu4_Programi</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu5_Video</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu6_Blog</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu7_Interaktivno</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu8_Vrijeme</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header_Menu9_Uživo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Sticky Header Menu Elements-->
+        <selector>
+            <keyword>Sticky_Header_Menu1_Vijesti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu2_Teme</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu3_Mišljenja</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu4_Programi</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu5_Video</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu6_Blog</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu7_Interaktivno</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu8_Vrijeme</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Sticky_Header_Menu9_Uživo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Header Social Media Links -->
+        <selector>
+            <keyword>Header1_Facebook</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='facebook first']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header2_Twitter</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='twitter']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header3_Google_Plus</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='google-plus']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header4_Instagram</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='instagram']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header5_Linkedin</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='linkedin']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header6_Youtube</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='youtube']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header7_RSS</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='rss']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Header8_Dailymotion</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='dailymotion last']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Popular Link -->
+        <selector>
+            <keyword>Link_POPULARNO</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(text(), 'Popularno:')]</element_locator_value>
+        </selector>
+
+        <!-- Selectors for SideBar -->
+        <selector>
+            <keyword>SideBar_NOVI_NASLOVI</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[contains(text(), 'Novi naslovi') and @class='pane-title']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Main Article in Middle -->
+        <selector>
+            <keyword>Article1_InCenter</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'panel-region-top-content')]</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Article in Right -->
+        <selector>
+            <keyword>Article2_InTopRight</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'panel-region-top-right')]</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Programs List -->
+        <selector>
+            <keyword>Section1_Programi</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class='pane-title']//a[text()='Programi']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Economy -->
+        <selector>
+            <keyword>Section2_EKONOMIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class='pane-title']//a[text()='EKONOMIJA']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Culture -->
+        <selector>
+            <keyword>Section3_KULTURA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class='pane-title']//a[text()='KULTURA']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Technology -->
+        <selector>
+            <keyword>Section4_TEHNOLOGIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class='pane-title']//a[text()='TEHNOLOGIJA']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Featured Videos -->
+        <selector>
+            <keyword>Section5_Izdvojeni_video</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class='pane-title' and contains(text(),'Izdvojeni video')]</element_locator_value>
+        </selector>
+
+
+        <!-- Selectors for Footer Menu Items -->
+        <selector>
+            <keyword>Footer_Menu1_Al_Jazeera</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[text()='Al Jazeera']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Menu2_Mobilne_usluge</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[text()='Mobilne usluge']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Menu3_Korisnička_pravila</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[text()='Korisnička pravila']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Footer Sections -->
+        <selector>
+            <keyword>Footer_Section1_O_nama</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//span[text()='O nama']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu1_O_nama</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='O nama']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu2_Kako_nas_gledati</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Kako nas gledati']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu3_Odredbe_i_uvjeti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Odredbe i uvjeti']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu4_Politika_Privatnosti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Politika Privatnosti']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu5_Politika_kolačića</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Politika kolačića']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section1_SubMenu6_Postavke_kolačića</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Postavke kolačića']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_Naši_kanali</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//span[text()='Naši kanali']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu1_Al_Jazeera_Arabic</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Arabic']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu2_Al_Jazeera_English</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera English']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu3_Al_Jazeera_Mubasher</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Mubasher']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu4_Al_Jazeera_Dokumentarni</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Dokumentarni']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu5_Al_Jazeera_Balkans</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Balkans']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu6_Al_Jazeera_Turk</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Turk']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu7_AJ_+</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='AJ +']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section2_SubMenu8_AJ+_Arabi</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='AJ+ Arabi']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section3_Naša_mreža</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//span[text()='Naša mreža']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section3_SubMenu1_Al_Jazeerin_Centar_za_studije</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeerin Centar za studije']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section3_SubMenu2_Al_Jazeerin_Medijski_institut</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeerin Medijski institut']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section3_SubMenu3_Al_Jazeerin_Centar_za_ljudska_prava_i_građanske_slobode</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeerin Centar za ljudska prava i građanske slobode']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Section3_SubMenu4_Al_Jazeera_Forum</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Forum']</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="text">
+
+        <selector>
+            <element_locator_type>css</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+</UIElements>

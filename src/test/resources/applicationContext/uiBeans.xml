@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Read any values directly from Properties file-->
+	<bean id="uiElementLocator" class="org.testing.framework.model.uiModels.WebElementsModel"
+		  parent="uiElementLocatorParent">
+		<property name="loadTimeout">
+			<map merge="false">
+				<entry key="SISAjaxLoader" value="${ajax.busy.identifier}"/>
+			</map>
+		</property>
+		<property name="urlMap">
+			<map merge="false">
+				<entry key="BALKANS_URL" value="${balkans.url}"/>
+			</map>
+		</property>
+	</bean>
+
+
+	<!-- These beans create the links to the xml file to be used in the locations of elements -->
+	<bean id="balkansWebsiteHomePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/HomePage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteVijestiPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VijestiPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteMišljenjaPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/MišljenjaPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteProgramiPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/ProgramiPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteTemePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/TemePage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteVideoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VideoPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteBlogPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/BlogPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteInteraktivnoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/InteraktivnoPage.xml"/>
+	</bean>
+
+	<bean id="balkansWebsiteVrijemePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VrijemePage.xml"/>
+	</bean>
+
+</beans>

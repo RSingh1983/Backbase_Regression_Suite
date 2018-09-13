@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<UIElements>
+
+    <Element type="input">
+
+        <selector>
+            <element_locator_type>id</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="combo">
+
+        <selector>
+            <element_locator_type>xpath</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="click">
+
+        <selector>
+            <keyword>Header_Menu_Mišljenja</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>MainSection_Mišljenja</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header' and text()='Mišljenja']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for various Sections-->
+        <selector>
+            <keyword>SubSection1_Top_autori</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[@class = 'pane-title' and contains(text(),'Top autori')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SubSection2_Najnovije_vijesti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[contains(text(),'Najnovije vijesti')]</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="text">
+
+        <selector>
+            <element_locator_type>css</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+</UIElements>

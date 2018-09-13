@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Here the xml selectors are defined -->
+    <bean id="uiElementLocatorParent" abstract="true" class="org.testing.framework.model.uiModels.WebElementsModel">
+        <property name="clickSelector" value="//Element[@type='click']/selector"/>
+        <property name="inputSelector" value="//Element[@type='input']/selector"/>
+        <property name="comboSelector" value="//Element[@type='combo']/selector"/>
+        <property name="textSelector" value="//Element[@type='text']/selector"/>
+    </bean>
+
+    <!-- Insert the testing context bean so that any additional features for the project can be added -->
+    <import resource="classpath*:applicationContext/testingContext.xml"/>
+
+</beans>

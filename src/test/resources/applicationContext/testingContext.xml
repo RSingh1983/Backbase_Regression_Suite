@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- This bean is the starting point for the testing project, it is called directly from the frameworks application context.
+        So all additional features for the project can be added here. If the framework needs to be updated then do it in the application context
+    -->
+    <!-- Insert the xml location beans so that this context can use the xml locations -->
+    <import resource="classpath*:applicationContext/uiBeans.xml"/>
+</beans>

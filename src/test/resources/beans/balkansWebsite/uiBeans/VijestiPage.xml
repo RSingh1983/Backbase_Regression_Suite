@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<UIElements>
+
+    <Element type="input">
+
+        <selector>
+            <element_locator_type>id</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="combo">
+
+        <selector>
+            <element_locator_type>xpath</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="click">
+
+        <selector>
+            <keyword>Header_Menu_Vijesti</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for SideBar Menu Elements-->
+        <selector>
+            <keyword>SiderBar_Menu1_Balkan</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Balkan']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SiderBar_Menu2_Svijet</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Svijet']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SiderBar_Menu3_KULTURA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='KULTURA']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SiderBar_Menu4_TEHNOLOGIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='TEHNOLOGIJA']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SiderBar_Menu5_EKONOMIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='EKONOMIJA']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SiderBar_Menu6_SPORT</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='SPORT']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Visit Page Links for each SiderBar Menu Elements-->
+        <selector>
+            <keyword>VisitPage_Link1_Balkan</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više Balkan ']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>VisitPage_Link2_Svijet</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više Svijet ']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>VisitPage_Link3_KULTURA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više KULTURA ']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>VisitPage_Link4_TEHNOLOGIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više TEHNOLOGIJA ']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>VisitPage_Link5_EKONOMIJA</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više EKONOMIJA ']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>VisitPage_Link6_SPORT</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//div[@id='mini-panel-mega_menu_news']//a[text()='Više SPORT ']</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="text">
+
+        <selector>
+            <element_locator_type>css</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+</UIElements>
