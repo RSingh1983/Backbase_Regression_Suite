@@ -1,8 +1,8 @@
 Feature: As a Balkans Site User I should be able to see and navigate through Programi Page Elements:
 
   @live
-  Scenario: Validation of Programi Page Elements
-    Given  I browse webSite using BALKANS_URL url
+  Scenario: Programi Page: Validation of UI Elements
+    Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Programi element for the Programi Page
     Then I should see the below mentioned SideBar Menu items on the Programi Page
       | SiderBar_Menu1      | SiderBar_Menu2 | SiderBar_Menu3 | SiderBar_Menu4 | SiderBar_Menu5 | SiderBar_Menu6    | SiderBar_Menu7 |

@@ -19,9 +19,8 @@
         <!-- Project properties -->
         <webdriver.driver>chrome</webdriver.driver>
         <featurePath>/*</featurePath>
-        <env>at</env>
-        <story.timeout.in.secs>1500</story.timeout.in.secs>
-        <envProp>classpath:properties/at.properties</envProp>
+        <env>live</env>
+        <envProp>classpath:properties/live.properties</envProp>
 
 
         <!-- FrameWork properties -->

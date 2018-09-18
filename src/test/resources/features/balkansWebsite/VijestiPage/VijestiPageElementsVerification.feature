@@ -1,8 +1,8 @@
 Feature: As a Balkans Site User I should be able to see and navigate through Vijesti Menu options:
 
   @live
-  Scenario: Validation of Vijesti Page Elements
-    Given  I browse webSite using BALKANS_URL url
+  Scenario: Vijesti Page: Validation of UI Elements
+    Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Vijesti element for the Vijesti Page
     Then I should see the below mentioned SideBar Menu items on the Vijesti Page
       | SiderBar_Menu1 | SiderBar_Menu2 | SiderBar_Menu3 | SiderBar_Menu4 | SiderBar_Menu5 | SiderBar_Menu6|
