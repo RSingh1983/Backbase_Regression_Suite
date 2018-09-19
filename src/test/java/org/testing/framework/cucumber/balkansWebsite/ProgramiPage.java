@@ -31,6 +31,8 @@ public class ProgramiPage extends PageObject {
 
     @Then("^I hover mouse over (.*) element of (.*), I should see (.*) link on the Programi Page$")
     public void hoverMouseAndValidateLink(String hoverField, String mainMenu, String validationLinkField) throws Exception {
+        programiPageSteps.scrollToClickElement(mainMenu);
+        programiPageSteps.hoverMouseOverLink(mainMenu);
         programiPageSteps.hoverMouseOverLink(hoverField);
         programiPageSteps.assert_click_element_visible(validationLinkField);
     }

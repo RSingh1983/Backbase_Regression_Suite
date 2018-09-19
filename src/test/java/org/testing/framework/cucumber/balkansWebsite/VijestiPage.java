@@ -32,6 +32,8 @@ public class VijestiPage extends PageObject {
 
     @Then("^I hover mouse over (.*) element of (.*), I should see (.*) link on the Vijesti Page$")
     public void hoverMouseAndValidateLink(String hoverField, String mainMenu, String validationLinkField) throws Exception {
+        vijestiPageSteps.scrollToClickElement(mainMenu);
+        vijestiPageSteps.hoverMouseOverLink(mainMenu);
         vijestiPageSteps.hoverMouseOverLink(hoverField);
         vijestiPageSteps.assert_click_element_visible(validationLinkField);
     }
