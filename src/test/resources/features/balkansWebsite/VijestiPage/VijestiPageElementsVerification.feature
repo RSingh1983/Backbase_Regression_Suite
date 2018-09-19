@@ -1,7 +1,7 @@
 Feature: As a Balkans Site User I should be able to see and navigate through Vijesti Menu options:
 
   @live @Vijesti
-  Scenario: Vijesti Page: Validation of UI Elements
+  Scenario: Vijesti Page-  Validation of UI Elements
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Vijesti element for the Vijesti Page
     Then I should see the below mentioned SideBar Menu items on the Vijesti Page
