@@ -28,25 +28,18 @@ public class Url extends PageObject {
 
     public void open_page(String url) throws Exception {
         WebDriver driver = getDriver();
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
 
         // TODO: Need to figure out a way to throw an error when a page doesn't
-        // load. Otherwise
-        // the test will just hang until global test timeout.
-        // The following do NOT work for some unknown reason:
-        // getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        // getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        // getDriver().manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+//         load. Otherwise
+//         the test will just hang until global test timeout.
+//         The following do NOT work for some unknown reason:
+//         getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+//         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//         getDriver().manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
 
         driver.get(url);
     }
-
-//    public void open_page_chrome(String url) throws Exception {
-//        WebDriver driver = getDriver();
-//        System.setProperty("webdriver.chrome.driver", "/home/lavanya/Downloads/chromedriver_mac.exe");
-//        WebDriver myD = new ChromeDriver();
-//        myD.get(url);
-//    }
 
     /**
      * This will get the current web pages' url and return it
@@ -57,13 +50,13 @@ public class Url extends PageObject {
         return getDriver().getCurrentUrl();
     }
 
+
     //SwitchWindow
     public void switchWindow() {
-// Store the current window handle
+        // Store the current window handle
         String winHandleBefore = getDriver().getWindowHandle();
 
-// Switch to new window opened
-
+        // Switch to new window opened
         for (String winHandle : getDriver().getWindowHandles()) {
             if (!winHandle.equals(winHandleBefore)) {
                 getDriver().switchTo().window(winHandle);
@@ -72,15 +65,15 @@ public class Url extends PageObject {
             }
 
         }
-        System.out.println("LOGLOG " + getDriver().getCurrentUrl());
+        logger.info("Current URL is: " + getDriver().getCurrentUrl());
     }
 
     //SwitchWindow
     public void switchWindowWithTitle(String title) {
-// Store the current window handle
+        // Store the current window handle
         String winHandleBefore = getDriver().getWindowHandle();
 
-// Switch to new window opened
+        // Switch to new window opened
         boolean foundWindow = false;
         String reqWindowHandle = null;
         for (String winHandle : getDriver().getWindowHandles()) {
@@ -97,7 +90,7 @@ public class Url extends PageObject {
             getDriver().switchTo().window(reqWindowHandle);
         else
             throw new WebDriverException("No Window found with title "+title);
-        System.out.println("LOGLOG " + getDriver().getCurrentUrl());
+        logger.info("Current URL is: " + getDriver().getCurrentUrl()) ;
     }
 
     public void closeOtherWindows(){
@@ -114,11 +107,10 @@ public class Url extends PageObject {
     //SwitchWindow
     public void switchWindow(String win_Id) {
 
-// Switch to new window opened
+    // Switch to new window opened
         String winHandle = (String) getDriver().getWindowHandles().toArray()[Integer.parseInt(win_Id)];
-        System.out.println("je baat : " + winHandle);
         getDriver().switchTo().window(winHandle);
-        System.out.println("LOGLOG " + getDriver().getCurrentUrl());
+        logger.info("Current URL is: " + getDriver().getCurrentUrl());
     }
 
     //public void getAlertBox

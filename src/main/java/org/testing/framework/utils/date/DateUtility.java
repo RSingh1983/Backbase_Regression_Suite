@@ -29,7 +29,7 @@ public class DateUtility {
 
     public static void main(String[] ss) {
         DateUtility dateutils = new DateUtility();
-        System.out.println(dateutils.convertDateFormat(new Date(), CASHBACK_FORMAT));
+        logger.info(dateutils.convertDateFormat(new Date(), CASHBACK_FORMAT));
     }
 
     /**

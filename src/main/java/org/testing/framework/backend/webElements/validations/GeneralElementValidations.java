@@ -176,21 +176,14 @@ public class GeneralElementValidations extends PageObject {
      */
     public boolean isElementVisible(final String field, String fieldReplacement, final String beanFileName, final String beanPath) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
-        String[] fieldList = field.split(
-                LoadProjectProperties.getStringProperty(
-                        LoadProjectProperties.ASSERT_TEXT_DELIMITER));
-        boolean allFieldsVisible = false;
-        for (String singleField : fieldList) {
-            WebElement element = elementLocator.locateElement(field, beanFileName, beanPath, getDriver(), true);
-            logger.info("Element Text is: " + element.getText());
+        boolean elementVisible = false;
+            WebElement element = elementLocator.locateElement(field, fieldReplacement,beanFileName, beanPath, getDriver(), true);
             if (element == null || !element.isDisplayed()) {
-                allFieldsVisible = false;
-                break;
+                elementVisible = false;
             } else {
-                allFieldsVisible = true;
+                elementVisible = true;
             }
-        }
-        return allFieldsVisible;
+        return elementVisible;
     }
 
 

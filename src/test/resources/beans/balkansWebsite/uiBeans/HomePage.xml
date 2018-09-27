@@ -24,6 +24,13 @@
 
     <Element type="click">
 
+        <!-- Selectors for Home Page Logo-->
+        <selector>
+            <keyword>Home_Page_Logo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[@class='logo']</element_locator_value>
+        </selector>
+
         <!-- Selectors for Top Fixed Header Menu Elements-->
         <selector>
             <keyword>Header_Menu1_Vijesti</keyword>
@@ -138,49 +145,49 @@
         <selector>
             <keyword>Header1_Facebook</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='facebook first']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'facebook')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header2_Twitter</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='twitter']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'twitter')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header3_Google_Plus</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='google-plus']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'google-plus')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header4_Instagram</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='instagram']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'instagram')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header5_Linkedin</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='linkedin']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'linkedin')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header6_Youtube</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='youtube']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'youtube')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header7_RSS</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='rss']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'rss')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header8_Dailymotion</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[@class='dailymotion last']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-uber-publisher-follow-uber-publisher-follow']/ul/li[contains(@class,'dailymotion')]</element_locator_value>
         </selector>
 
         <!-- Selectors for Popular Link -->
@@ -393,14 +400,93 @@
             <element_locator_value>//section[@id='block-menu-block-aj-balkans-footer-menu']//a[text()='Al Jazeera Forum']</element_locator_value>
         </selector>
 
+
+        <!-- Selectors for Top Left New Stories Pane -->
+        <selector>
+            <keyword>Top_Left_Panel_New_Stories</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'panel-region-top-left')]//div[@id='views-bootstrap-grid-1']/div[_##_]//h5//a</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Social Media Sharing on Articles Page -->
+
+        <selector>
+            <keyword>Normal_Article_Share_Facebook</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@onclick,'http://www.facebook.com/sharer.php?u=http://ajb.me/')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Normal_Article_Share_Twitter</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@onclick,'http://twitter.com/share?text=_##_')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Normal_Article_Share_Mail</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@href,'mailto:?subject=_##_')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Video_Article_Share_Facebook</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(@onclick,'http://www.facebook.com/sharer.php?u=http://ajb.me/')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Video_Article_Share_Twitter</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(@onclick,'http://twitter.com/share?text=_##_')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Video_Article_Share_Mail</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(@href,'mailto:?subject=_##_')]</element_locator_value>
+        </selector>
+
+        <!-- Selectors for all Anchors, links and Images elements -->
+        <selector>
+            <keyword>All_Anchors</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>All_Links</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//links</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>All_Images</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//img</element_locator_value>
+        </selector>
+
     </Element>
 
     <Element type="text">
 
+        <!-- Selectors for Social Media Sharing on Articles Page -->
         <selector>
-            <element_locator_type>css</element_locator_type>
-            <keyword></keyword>
-            <element_locator_value></element_locator_value>
+            <keyword>Normal_Article_Social_Media_Sharing_Label</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//div[@class='sharing-label' and text()='Podijeli']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Video_Article_Social_Media_Sharing_Label</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='video-sharing-label' and text()='Podijeli']</element_locator_value>
+        </selector>
+
+        <!-- Selectors for Heading on specific Articles Page -->
+        <selector>
+            <keyword>Normal_Article_Header</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header']</element_locator_value>
         </selector>
 
     </Element>

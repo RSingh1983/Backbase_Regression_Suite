@@ -24,7 +24,7 @@ public class Text extends PageObject {
     }
 
 
-    public String   getColorFromElement(final String field,String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
+    public String getColorFromElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
 
         String text = "";
 
@@ -45,7 +45,7 @@ public class Text extends PageObject {
     /**
      * This will get the text inside the element that has been passed in
      *
-     * @param field       A keyword location of an element in an xml file as a String
+     * @param field        A keyword location of an element in an xml file as a String
      * @param beanFileName The name and path of the xml file to look in as a String
      * @param beanPath     The element node type location in the xml file as a String
      * @return The text in the element or empty
@@ -60,10 +60,7 @@ public class Text extends PageObject {
         // If the element has been found
         if (elementFound != null) {
             text = elementFound.getText();
-            // areas of text (eg, inside <td> will return
-            // element.getAttribute("value") as null
             if (text.isEmpty() && elementFound.getAttribute("value") != null) {
-                // get the value from text input elements
                 text = elementFound.getAttribute("value");
             }
             if (text.isEmpty()) {
@@ -73,7 +70,7 @@ public class Text extends PageObject {
         return text;
     }
 
-    public String   getTextFromElement(final String field,String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
+    public String getTextFromElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
         String text = "";
         // Locate the passed element
         WebElementLocator elementLocator = WebElementLocator.getInstance();
@@ -81,10 +78,7 @@ public class Text extends PageObject {
         // If the element has been found
         if (elementFound != null) {
             text = elementFound.getText();
-            // areas of text (eg, inside <td> will return
-            // element.getAttribute("value") as null
             if (text.isEmpty() && elementFound.getAttribute("value") != null) {
-                // get the value from text input elements
                 text = elementFound.getAttribute("value");
             }
             if (text.isEmpty()) {
@@ -94,7 +88,7 @@ public class Text extends PageObject {
         return text;
     }
 
-    public String   getTextFromElement(final String field,String fieldReplacementValue, final String beanFileName, final String beanPath, final String repDelimiterChar) throws Exception {
+    public String getTextFromElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath, final String repDelimiterChar) throws Exception {
 
         String text = "";
 
@@ -123,20 +117,19 @@ public class Text extends PageObject {
         return text;
     }
 
-    public List<WebElement> getWebElement(final String field,String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
+    public List<WebElement> getWebElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
         WebElement element = elementLocator.locateElement(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
         List<WebElement> elementsFound = element.findElements(net.serenitybdd.core.annotations.findby.By.xpath(elementLocator.getElementPath(field, beanFileName, beanPath)));
         return elementsFound;
     }
 
-    public List<String> listOfElements(final String field,String fieldReplacementValue,final String beanFileName,final String beanPath) throws Exception{
+    public List<String> listOfElements(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
         List<WebElement> element = elementLocator.locateMultipleElements(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), false);
-        List<String> elementsFound=new ArrayList<>();
-        if(!element.isEmpty())
-            for(WebElement webElement:element)
-            {
+        List<String> elementsFound = new ArrayList<>();
+        if (!element.isEmpty())
+            for (WebElement webElement : element) {
                 elementsFound.add(webElement.getText());
             }
         return elementsFound;
@@ -172,10 +165,10 @@ public class Text extends PageObject {
      * <p>
      * This Method can assert the presence of multiple elements separated by a delimiter in the field parameter
      *
-     * @param keyword The text to search for
-     * @param field	A keyword location of an element in an xml file as a String
+     * @param keyword      The text to search for
+     * @param field        A keyword location of an element in an xml file as a String
      * @param beanFileName The name and path of the xml file to look in as a String
-     * @param beanPath The element node type location in the xml file as a String
+     * @param beanPath     The element node type location in the xml file as a String
      * @throws Exception If the text is not present then it throws an error
      */
     public void isTextPresentAtLocation(final String keyword, final String field, final String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
@@ -187,8 +180,8 @@ public class Text extends PageObject {
         boolean allKeywordsPresent = false;
 
         // If the lists are the same length then do the checking, else throw an error
-        if(keywordList.length != fieldList.length) {
-            throw new Exception("Keyword list and field list count does not match:"+ keywordList.length+" != "+fieldList.length+", keyword:"+ Arrays.toString(keywordList)+", fieldList:"+Arrays.toString(fieldList));
+        if (keywordList.length != fieldList.length) {
+            throw new Exception("Keyword list and field list count does not match:" + keywordList.length + " != " + fieldList.length + ", keyword:" + Arrays.toString(keywordList) + ", fieldList:" + Arrays.toString(fieldList));
         }
 
         // Set up the variables for the loop
@@ -196,13 +189,13 @@ public class Text extends PageObject {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
 
         // For each item in the lists
-        for(int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             WebElement element = elementLocator.locateElement(fieldList[i], fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
             allKeywordsPresent = element.getText().contains(keywordList[i].trim());
 
             // areas of text (eg, inside <td> will return element.getAttribute("value") as null
             String value = element.getAttribute("value");
-            logger.info("Looking for: " + keywordList[i]+ " in [text: "+element.getText()+", attrValue: "+value+"]");
+            logger.info("Looking for: " + keywordList[i] + " in [text: " + element.getText() + ", attrValue: " + value + "]");
             if (element.getText().isEmpty() && value != null) {
                 // get the value from text input elements
                 allKeywordsPresent = value.contains(keywordList[i].trim());
@@ -223,9 +216,9 @@ public class Text extends PageObject {
      * <p>
      * This Method can assert the presence of multiple elements separated by a delimiter in the field parameter
      *
-     * @param field	A keyword location of an element in an xml file as a String
+     * @param field        A keyword location of an element in an xml file as a String
      * @param beanFileName The name and path of the xml file to look in as a String
-     * @param beanPath The element node type location in the xml file as a String
+     * @param beanPath     The element node type location in the xml file as a String
      * @throws Exception If the text is not present then it throws an error
      */
     public void isAnyTextPresentAtLocation(final String field, final String beanFileName, final String beanPath) throws Exception {
@@ -268,17 +261,53 @@ public class Text extends PageObject {
      * <p>
      * This Method can assert the presence of multiple elements separated by a delimiter in the field parameter
      *
-     * @param keyword The text to search for
-     * @param field	A keyword location of an element in an xml file as a String
+     * @param keyword      The text to search for
+     * @param field        A keyword location of an element in an xml file as a String
      * @param beanFileName The name and path of the xml file to look in as a String
-     * @param beanPath The element node type location in the xml file as a String
+     * @param beanPath     The element node type location in the xml file as a String
      * @throws Exception If the text is not present then it throws an error
      */
 
 
-
-
     public void isAttributeTextPresentAtLocation(final String keyword, final String field, final String attribute, final String beanFileName, final String beanPath) throws Exception {
+
+        // Split the keywords and fields up using the delimiter
+//        String[] keywordList = keyword.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.ASSERT_TEXT_DELIMITER));
+//        String[] fieldList = field.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.ASSERT_TEXT_DELIMITER));
+        boolean allKeywordsPresent = false;
+
+        // If the lists are the same length then do the checking, else throw an error
+//        if (keywordList.length == fieldList.length) {
+
+            // Set up the variables for the loop
+//            int count = keywordList.length;
+            WebElementLocator elementLocator = WebElementLocator.getInstance();
+
+            // For each item in the lists
+//            for (int i = 0; i < count; i++) {
+
+                WebElement element = elementLocator.locateElement(field, beanFileName, beanPath, getDriver(), true);
+                logger.info("Assert keyword is: " + keyword);
+                allKeywordsPresent = element.getText().contains(keyword.trim());
+
+                if (element.getText().isEmpty() && element.getAttribute(attribute) != null) {
+                    // get the title text from elements
+                    allKeywordsPresent = element.getAttribute(attribute).contains(keyword.trim());
+                }
+
+//                if (!allKeywordsPresent) {
+//                    break;
+//                }
+//            }
+//        } else {
+//            throw new Exception("Keyword list and field list count does not match");
+//        }
+
+        assertTrue(allKeywordsPresent);
+
+    }
+
+    public void isAttributeTextPresentAtLocation(final String keyword, final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath) throws Exception {
 
         // Split the keywords and fields up using the delimiter
         String[] keywordList = keyword.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.ASSERT_TEXT_DELIMITER));
@@ -286,16 +315,16 @@ public class Text extends PageObject {
         boolean allKeywordsPresent = false;
 
         // If the lists are the same length then do the checking, else throw an error
-        if(keywordList.length == fieldList.length) {
+        if (keywordList.length == fieldList.length) {
 
             // Set up the variables for the loop
             int count = keywordList.length;
             WebElementLocator elementLocator = WebElementLocator.getInstance();
 
             // For each item in the lists
-            for(int i=0; i<count; i++) {
+            for (int i = 0; i < count; i++) {
+                WebElement element = elementLocator.locateElement(fieldList[i], fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
 
-                WebElement element = elementLocator.locateElement(fieldList[i], beanFileName, beanPath, getDriver(), true);
                 logger.info("Assert keyword is: " + keywordList[i]);
                 allKeywordsPresent = element.getText().contains(keywordList[i].trim());
 
@@ -316,44 +345,26 @@ public class Text extends PageObject {
 
     }
 
-    public void isAttributeTextPresentAtLocation(final String keyword, final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath) throws Exception {
 
-// Split the keywords and fields up using the delimiter
-        String[] keywordList = keyword.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.ASSERT_TEXT_DELIMITER));
-        String[] fieldList = field.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.ASSERT_TEXT_DELIMITER));
-        boolean allKeywordsPresent = false;
+    public String getAttributeValueFromElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath) throws Exception {
 
-// If the lists are the same length then do the checking, else throw an error
-        if(keywordList.length == fieldList.length) {
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        WebElement element = elementLocator.locateElement(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
 
-// Set up the variables for the loop
-            int count = keywordList.length;
-            WebElementLocator elementLocator = WebElementLocator.getInstance();
-
-// For each item in the lists
-            for(int i=0; i<count; i++) {
-                WebElement element = elementLocator.locateElement(fieldList[i], fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
-
-                logger.info("Assert keyword is: " + keywordList[i]);
-                allKeywordsPresent = element.getText().contains(keywordList[i].trim());
-
-                if (element.getText().isEmpty() && element.getAttribute(attribute) != null) {
-// get the title text from elements
-                    allKeywordsPresent = element.getAttribute(attribute).contains(keywordList[i].trim());
-                }
-
-                if (!allKeywordsPresent) {
-                    break;
-                }
-            }
-        } else {
-            throw new Exception("Keyword list and field list count does not match");
-        }
-
-        assertTrue(allKeywordsPresent);
-
+        return element.getAttribute(attribute);
     }
 
+    public ArrayList<String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath) throws Exception {
+
+        ArrayList<String> attributeValues = new ArrayList<String>();
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        List<WebElement> elements = elementLocator.locateMultipleElements(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
+
+        for(WebElement element : elements){
+            attributeValues.add(element.getAttribute(attribute));
+        }
+        return attributeValues;
+    }
 
 
 }

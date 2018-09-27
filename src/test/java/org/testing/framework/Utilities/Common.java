@@ -104,7 +104,7 @@ public class Common {
         StackTraceElement[] stackTraceElements = Thread.currentThread()
                 .getStackTrace();
         for (StackTraceElement e : stackTraceElements)
-            System.out.println(e.getClassName() + "." + e.getMethodName());
+            logger.info(e.getClassName() + "." + e.getMethodName());
     }
 
     public static void setLogSleep(boolean logSleep) {
@@ -158,7 +158,7 @@ public class Common {
         Thread[] lstThreads = new Thread[noThreads];
         currentGroup.enumerate(lstThreads);
         for (int i = 0; i < noThreads; i++)
-            System.out.println("Thread No:" + i + " = "
+            logger.info("Thread No:" + i + " = "
                     + lstThreads[i].getName());
     }
 

@@ -71,13 +71,13 @@ public class CommonPage extends PageObject {
     @Given("^I browse webSite using (.*) url of (.*)$")
     public void openURL(String url, String page) throws Exception {
         getUISteps(page).open_site(url);
-        getUISteps(page).page_refresh();
+//        getUISteps(page).page_refresh();
     }
 
     @When("^I click the (.*) element for (.*)$")
     public void clickElement(String field, String page) throws Exception {
         getUISteps(page).assert_click_element_visible(field);
-        getUISteps(page).click_the_link(field);
+        getUISteps(page).click_the_element(field);
     }
 
     @Then("^I should see the below mentioned (.*)?items on the (.*)$")

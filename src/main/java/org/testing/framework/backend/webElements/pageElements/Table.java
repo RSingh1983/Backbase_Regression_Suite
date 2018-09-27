@@ -115,7 +115,7 @@ public class Table extends PageObject {
             String currentRowCellItem = trElements.get(rowCounter).findElement(By.xpath("td[" + colNum + "]")).getText().trim();
             String nextRowCellItem = trElements.get(rowCounter + 1).findElement(By.xpath("td[" + colNum + "]")).getText().trim();
 
-            System.out.println("Comparing " + currentRowCellItem + " to " + nextRowCellItem);
+            logger.info("Comparing " + currentRowCellItem + " to " + nextRowCellItem);
 
             if (DisplayOrderType.asc.equals(orderType)) {
                 if (currentRowCellItem.compareToIgnoreCase(nextRowCellItem) > 0) {
@@ -145,7 +145,7 @@ public class Table extends PageObject {
             String currentRowCellItem = trElements.get(rowCounter).findElement(By.xpath("td[" + colNum + "]/img")).getAttribute("alt").trim();
             String nextRowCellItem = trElements.get(rowCounter + 1).findElement(By.xpath("td[" + colNum + "]/img")).getAttribute("alt").trim();
 
-            System.out.println("Comparing " + currentRowCellItem + " to " + nextRowCellItem);
+            logger.info("Comparing " + currentRowCellItem + " to " + nextRowCellItem);
 
             if (DisplayOrderType.asc.equals(orderType)) {
                 if (currentRowCellItem.compareToIgnoreCase(nextRowCellItem) > 0) {

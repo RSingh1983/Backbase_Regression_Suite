@@ -44,8 +44,6 @@ public abstract class UISteps extends AuatSteps {
     GeneralElementValidations generalElementValidations;
     ImageValidations imageValidations;
 
-//    Properties prop = new Properties();
-
     public UISteps(Pages pages) {
         super(pages);
         ajaxWebElement = getPages().get(Ajax.class);
@@ -65,7 +63,6 @@ public abstract class UISteps extends AuatSteps {
 
     @Step
     public void verifyAlertMessage(String alertMsg) throws Exception {
-        // clickWebElement.click_the_element(link, getBeanFilePath(), webElementsModel.getClickSelector(), true);
         javaScriptWebElement.isJavascriptAlert(alertMsg);
     }
 
@@ -168,92 +165,30 @@ public abstract class UISteps extends AuatSteps {
     }
 
 
-    // Javascript
-
-    /**
-     * This will remove the read only attribute on a field so that
-     *
-     * @param field The field name of the element in the text area of the xml file
-     * @throws Exception
-     */
     public void removeReadOnlyAttribute(String field) throws Exception {
         javaScriptWebElement.removeReadOnlyAttribute(field, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-    // Web page
 
-    /**
-     * This will get the text inside the element that has been passed in
-     *
-     * @param field The field to check inside
-     * @return The String found in the element or empty
-     * @throws Exception
-     */
-    public String getTextFromElement(String field) throws Exception {
+    @Step
+    public String getTextFromTextElement(String field) throws Exception {
         return textWebElement.getTextFromElement(field, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-
-    public String getTextFromElement(String field, String fieldReplacementValue) throws Exception {
+    @Step
+    public String getTextFromTextElement(String field, String fieldReplacementValue) throws Exception {
         return textWebElement.getTextFromElement(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-    public List<String> getTextFromElements(String field, String fieldReplacementValue) throws Exception {
 
-        String text = "";
-        List<String> list = new ArrayList<String>();
-        List<WebElement> elementsFound = textWebElement.getWebElement(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector());
-        logger.info("");
-        // If elements are not found
-        if (elementsFound != null) {
-
-            for (int i = 0; i < elementsFound.size(); i++) {
-                text = elementsFound.get(i).getText();
-                list.add(text);
-            }
-//            // areas of text (eg, inside <td> will return
-//            // element.getAttribute("value") as null
-//            if (text.isEmpty() && elementFound.getAttribute("value") != null) {
-//                // get the value from text input elements
-//                text = elementFound.getAttribute("value");
-//            }
-
-            if (list.isEmpty()) {
-                logger.warn("No text found in element" + field);
-            }
-
-        }
-        return list;
-
-    }
-
-    public String getTextFromElement(String field, String fieldReplacementValue, String replaceDelimiter) throws Exception {
-        return textWebElement.getTextFromElement(field, fieldReplacementValue, replaceDelimiter, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-
-    //
-    // Here are the steps for the BDD stories including web page manipulation
-    //
-
-    /**
-     * Opens the site defined by the host name property in the webElementsModel of the testingContext bean
-     *
-     * @throws Exception
-     */
     @Step
     public void open_the_home_page() throws Exception {
         String url = webElementsModel.getHostname();
-        logger.info("Opening page: " + url);
+        logger.info("Opening Page: " + url);
         urlWebElement.open_page(url);
     }
 
-    /**
-     * Opens the site as defined in the urlMap of the testingContext bean
-     *
-     * @param webSiteName The id of the site to open in the urlMap
-     * @throws Exception
-     */
+
     @Step
     public void open_site(String webSiteName) throws Exception {
         String url = webElementsModel.getUrlMap().get(webSiteName);
@@ -261,13 +196,7 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.open_page(url);
     }
 
-    /**
-     * Opens the page as defined in the urlMap of the testingContext bean using the host name in the webElementsModel
-     * as the base path
-     *
-     * @param webPageName The id of the page to open in the urlMap as defined in the urlMap of the testingContext bean
-     * @throws Exception
-     */
+
     @Step
     public void open_page(String webPageName) throws Exception {
         String url = webElementsModel.getHostname() + webElementsModel.getUrlMap().get(webPageName);
@@ -275,14 +204,7 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.open_page(url);
     }
 
-    /**
-     * Opens the page as defined in the urlMap of the testingContext bean using the given urlMap id
-     * as the base path and page id
-     *
-     * @param siteName The site name as defined in the urlMap of the testingContext bean
-     * @param pageName The page name as defined in the urlMap of the testingContext bean to be appended to the site name
-     * @throws Exception
-     */
+
     @Step
     public void open_page(String siteName, String pageName) throws Exception {
         String url = webElementsModel.getUrlMap().get(siteName) + webElementsModel.getUrlMap().get(pageName);
@@ -290,14 +212,7 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.open_page(url);
     }
 
-    /**
-     * Opens the page as defined in the urlMap of the testingContext bean using the given urlMap id
-     * as the base path and the url to be appended to the site name
-     *
-     * @param siteName The site name as defined in the urlMap of the testingContext bean
-     * @param pageUrl  The page url to be appended to the site name
-     * @throws Exception
-     */
+
     @Step
     public void open_page_append_url(String siteName, String pageUrl) throws Exception {
         String url = webElementsModel.getUrlMap().get(siteName) + pageUrl;
@@ -305,23 +220,14 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.open_page(url);
     }
 
-    /**
-     * This will open the web page from a passed url string
-     *
-     * @param webPageUrl The web page to open as a String
-     * @throws Exception
-     */
+
     @Step
     public void open_page_from_url(String webPageUrl) throws Exception {
         logger.info("Opening Page: " + webPageUrl);
         urlWebElement.open_page(webPageUrl);
     }
 
-    /**
-     * This will select the iframe from the passed field in the xml file
-     *
-     * @throws Exception If the iframe is not found or switched to
-     */
+
     @Step
     public void switch_to_iframe(String field) throws Exception {
         iframeWebElement.select_the_frame(field, getBeanFilePath(), webElementsModel.getTextSelector());
@@ -410,50 +316,13 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.closeCurrentWindow();
     }
 
-    @Step
-    public void click_the_link(String link) throws Exception {
-        click_the_link(link, "");
-    }
+
+    /////////////////************************ Steps for Click Elements *********************************//////////////////
+
 
     @Step
-    public void click_the_link(String link, String linkReplacementValue) throws Exception {
-        clickWebElement.click_the_element(link, linkReplacementValue, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-    }
-
-    @Step
-    public void click_the_link_if_available(String link) throws Exception {
-        clickWebElement.click_the_element(link, getBeanFilePath(), webElementsModel.getClickSelector(), false);
-    }
-
-    @Step
-    public void click_drag_drop(String strElementToMove, String strElementReplaced) throws Exception {
+    public void drag_drop_element(String strElementToMove, String strElementReplaced) throws Exception {
         clickWebElement.drag_drop_element(strElementToMove, strElementReplaced, getBeanFilePath(), webElementsModel.getClickSelector(), false);
-    }
-
-    @Step
-    public void is_number_of_characters_correct(String element, int number) throws Exception {
-        generalElementValidations.isNumberOfCharactersCorrect(element, number, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    /**
-     * This will click on a link and check to see if a java alert was produced
-     *
-     * @param link The field where the link is loacted in the xml file
-     * @throws Exception If the link or alert is not done
-     */
-    @Step
-    public void click_the_link_and_check_alert(String link) throws Exception {
-        clickWebElement.click_the_element(link, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-        javaScriptWebElement.isJavascriptAlert();
-    }
-
-
-    @Step
-    public void click_the_link__with_location_check_alert(String link, String ReplaceChar) throws Exception {
-        clickWebElement.click_the_element(link, ReplaceChar, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-        logger.info("got alert");
-        javaScriptWebElement.isJavascriptAlert();
-        logger.info("accept alert");
     }
 
 
@@ -462,92 +331,45 @@ public abstract class UISteps extends AuatSteps {
         javaScriptWebElement.accept_alert();
     }
 
-    /**
-     * This will click on a link and check to see if a java alert was produced with the passed msg
-     *
-     * @param link     The field where the link is located in the xml file
-     * @param alertMsg A message to check for in the alert as a String
-     * @throws Exception If the link or alert is not done
-     */
     @Step
-    public void click_the_link_and_check_alert(String link, String alertMsg) throws Exception {
-        clickWebElement.click_the_element(link, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-        javaScriptWebElement.isJavascriptAlert(alertMsg);
-    }
-
-    /**
-     * @param link     The field where the link is located in the xml file
-     * @param alertMsg A message to check for in the alert as a String
-     * @throws Exception If the link or alert is not done
-     */
-    @Step
-    public void click_the_link_and_assert_and_accept(String link, String alertMsg) throws Exception {
-        clickWebElement.click_the_element(link, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-        javaScriptWebElement.assert_and_accept_JavascriptAlert(alertMsg);
-    }
-
-    /**
-     * @param link              The field where the link is located in the xml file
-     * @param replacementString A string to insert into the value found from the keyword, can be multiples split by a delimiter
-     * @param alertMsg          A message to check for in the alert as a String
-     * @throws Exception If the link or alert is not done
-     */
-    @Step
-    public void click_the_link_and_check_alert(String link, String replacementString, String alertMsg) throws Exception {
-        clickWebElement.click_the_element(link, replacementString, getBeanFilePath(), webElementsModel.getClickSelector(), true);
-        javaScriptWebElement.assert_and_accept_JavascriptAlert(alertMsg);
-    }
-
-    /**
-     * This Method can click on multiple elements separated by a delimiter '_'.
-     *
-     * @param buttonName A keyword location of an element in an xml file as a String
-     * @throws Exception If the element is not present
-     */
-    @Step
-    public void click_the_button(String buttonName) throws Exception {
+    public void click_the_element(String buttonName) throws Exception {
         clickWebElement.click_the_element(buttonName, getBeanFilePath(), webElementsModel.getClickSelector(), true);
     }
 
     @Step
-    public void click_multiple_buttons(String buttonName) throws Exception {
-        clickWebElement.click_multiple_elements_if_exists_and_wait_for_ajax(this, buttonName, getBeanFilePath(), webElementsModel.getClickSelector(), false);
-    }
-
-    /**
-     * This Method can click on multiple elements separated by a delimiter '_'.
-     * <p>
-     * Has the ability to substitute a value in the xml file with passed replace variables.
-     *
-     * @param buttonName    A keyword location of an element in an xml file as a String, can be multiples split by a delimiter.
-     * @param replaceString A string to insert into the value found from the keyword, can be multiples split by a delimiter, replace String is ##
-     * @throws Exception If the element is not present
-     */
-    @Step
-    public void click_the_button(String buttonName, String replaceString) throws Exception {
+    public void click_the_element(String buttonName, String replaceString) throws Exception {
 
         clickWebElement.click_the_element(buttonName, replaceString, getBeanFilePath(), webElementsModel.getClickSelector(), true);
     }
 
-
     @Step
-    public void click_the_button_replace_char(String buttonName, String replaceString, String replaceChar) throws Exception {
-        logger.info("repString=" + replaceString);
-        logger.info("repChar=" + replaceChar);
-
-        clickWebElement.click_the_element(buttonName, replaceString, getBeanFilePath(), webElementsModel.getClickSelector(), true, replaceChar);
+    public String getTextFromClickElement(String field) throws Exception {
+        return textWebElement.getTextFromElement(field, getBeanFilePath(), webElementsModel.getClickSelector());
     }
 
     @Step
-    public void click_the_button(String buttonName, String replaceString, String replaceDelimeter) throws Exception {
-
-        clickWebElement.click_the_element(buttonName, replaceString, replaceDelimeter, getBeanFilePath(), webElementsModel.getClickSelector(), true);
+    public String getTextFromClickElement(String field, String fieldReplacementValue) throws Exception {
+        return textWebElement.getTextFromElement(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getClickSelector());
     }
 
     @Step
-    public void click_the_button_and_wait_ajax(String buttonName, String replaceString) throws Exception {
-        click_the_button(buttonName, replaceString);
-        waitForAjaxBusyIdentifier();
+    public String getAttributeValueFromClickElement(String field, String attribute) throws Exception {
+        return textWebElement.getAttributeValueFromElement(field, "", attribute, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public String getAttributeValueFromClickElement(String field, String fieldReplacementValue, String attribute) throws Exception {
+        return textWebElement.getAttributeValueFromElement(field, fieldReplacementValue, attribute, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public ArrayList<String> getAttributeValueFromAllClickElement(String field, String attribute) throws Exception {
+        return textWebElement.getAttributeValueFromAllElement(field, "", attribute, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public ArrayList<String> getAttributeValueFromAllClickElement(String field, String fieldReplacementValue, String attribute) throws Exception {
+        return textWebElement.getAttributeValueFromAllElement(field, fieldReplacementValue, attribute, getBeanFilePath(), webElementsModel.getClickSelector());
     }
 
     @Step
@@ -564,6 +386,44 @@ public abstract class UISteps extends AuatSteps {
     public void move_to_Element(String element, String ReplaceChar) throws Exception {
         clickWebElement.move_to_Element(element, ReplaceChar, getBeanFilePath(), webElementsModel.getClickSelector(), true);
     }
+
+    @Step
+    public void assert_click_element_present(String field) throws Exception {
+        assert_click_element_present(field, "");
+    }
+
+    @Step
+    public void assert_click_element_present(String field, String fieldReplacement) throws Exception {
+        generalElementValidations.isElementPresent(field, fieldReplacement, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public void assert_click_element_visible(String field) throws Exception {
+        generalElementValidations.isElementVisible(field, "", getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public void assert_click_element_visible(String field, String fieldReplacement) throws Exception {
+        generalElementValidations.isElementVisible(field, fieldReplacement, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public void assert_text_element_visible(String field) throws Exception {
+        generalElementValidations.isElementVisible(field, "", getBeanFilePath(), webElementsModel.getTextSelector());
+    }
+
+
+    @Step
+    public void assert_error_message_fail(String field) throws Exception {
+        generalElementValidations.isErrorMessageNotVisible(field, "", getBeanFilePath(), webElementsModel.getTextSelector());
+    }
+
+    @Step
+    public void assert_multiple_click_element_present(String field) throws Exception {
+        generalElementValidations.isElementPresent(field, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    /////////////////************************ Steps for Combo-box or Drop Down *********************************//////////////////
 
     @Step
     public void select_value(String value, String field) throws Exception {
@@ -619,6 +479,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public void is_number_of_characters_correct(String element, int number) throws Exception {
+        generalElementValidations.isNumberOfCharactersCorrect(element, number, getBeanFilePath(), webElementsModel.getTextSelector());
+    }
+
+    @Step
     public void tick_the_checkbox(String field) throws Exception {
         checkBoxWebElement.tick_the_checkbox(field, getBeanFilePath(), webElementsModel.getInputSelector());
     }
@@ -664,25 +529,11 @@ public abstract class UISteps extends AuatSteps {
         return tableData;
     }
 
-
-    /**
-     * This will assert as to whether there is the passed string found on the current page
-     *
-     * @param value The string to check for
-     * @throws Exception
-     */
     @Step
     public void assert_value(String value) throws Exception {
         textWebElement.isTextPresentOnPage(value);
     }
 
-    /**
-     * This will assert as to whether there is the passed string found in the passed field
-     *
-     * @param value The string to check for
-     * @param field The field to check against
-     * @throws Exception
-     */
     @Step
     public void assert_value(String value, String field) throws Exception {
         textWebElement.isTextPresentAtLocation(value, field, getBeanFilePath(), webElementsModel.getTextSelector());
@@ -693,34 +544,16 @@ public abstract class UISteps extends AuatSteps {
         textWebElement.isTextPresentAtLocation(value, field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-    /**
-     * This will assert whether there is any text present at the given location (field)
-     *
-     * @param field A keyword location in an xml file as a String - Can be multiple entries with a '__' delimiter
-     * @throws Exception if text is not present
-     */
     @Step
     public void assert_that_there_is_text_present_at_element(String field, String fieldReplacement) throws Exception {
         textWebElement.isAnyTextPresentAtLocation(field, fieldReplacement, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-    /**
-     * This will assert whether there is any text present at the given location (field)
-     *
-     * @param field A keyword location in an xml file as a String - Can be multiple entries with a '__' delimiter
-     * @throws Exception if text is not present
-     */
     @Step
     public void assert_that_there_is_text_present_at_element(String field) throws Exception {
         assert_that_there_is_text_present_at_element(field, "");
     }
 
-    /**
-     * This will assert whether there is title text present at the given location (field)
-     *
-     * @param field A keyword location in an xml file as a String - Can be multiple entries with a '__' delimiter
-     * @throws Exception an exception if text is not present
-     */
     @Step
     public void assert_attribute_text_present_at_TextElement(String value, String field, String attribute) throws Exception {
         textWebElement.isAttributeTextPresentAtLocation(value, field, attribute, getBeanFilePath(), webElementsModel.getTextSelector());
@@ -870,36 +703,6 @@ public abstract class UISteps extends AuatSteps {
         generalElementValidations.isElementPresentReplace(field, fieldReplacement, getBeanFilePath(), webElementsModel.getTextSelector(), replaceCharacter);
     }
 
-    @Step
-    public void assert_click_element_present(String field) throws Exception {
-        assert_click_element_present(field, "");
-    }
-
-    @Step
-    public void assert_click_element_present(String field, String fieldReplacement) throws Exception {
-        generalElementValidations.isElementPresent(field, fieldReplacement, getBeanFilePath(), webElementsModel.getClickSelector());
-    }
-
-    @Step
-    public void assert_text_element_visible(String field) throws Exception {
-        generalElementValidations.isElementVisible(field, "", getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_click_element_visible(String field) throws Exception {
-        generalElementValidations.isElementVisible(field, "", getBeanFilePath(), webElementsModel.getClickSelector());
-    }
-
-    @Step
-    public void assert_error_message_fail(String field) throws Exception {
-        generalElementValidations.isErrorMessageNotVisible(field, "", getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_multiple_click_element_present(String field) throws Exception {
-        generalElementValidations.isElementPresent(field, getBeanFilePath(), webElementsModel.getClickSelector());
-    }
-
     /**
      * This asserts whether a new page has the passed url located in the passed xml field
      *
@@ -993,6 +796,16 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public void scrollToClickElement(String field, String replaceString) throws Exception{
+        javaScriptWebElement.scrollToElement(field, replaceString, getBeanFilePath(),webElementsModel.getClickSelector());
+    }
+
+    @Step
+    public void scrollToClickElementXCoordinate(String field) throws Exception{
+        javaScriptWebElement.scrollToElementXCoordinate(field, getBeanFilePath(),webElementsModel.getClickSelector());
+    }
+
+    @Step
     public void assertButtonColor(String field, String expectedColor) throws Exception {
         String cssColor = javaScriptWebElement.retrieveCssValue(field, "background", getBeanFilePath(), webElementsModel.getClickSelector());
         boolean in = cssColor.contains(expectedColor);
@@ -1019,8 +832,8 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
-    public void HoverAndClick(String buttonName) throws Exception {
-        clickWebElement.HoverAndClick(buttonName, getBeanFilePath(), webElementsModel.getClickSelector(), true);
+    public void hoverAndClick(String buttonName) throws Exception {
+        clickWebElement.hoverAndClick(buttonName, getBeanFilePath(), webElementsModel.getClickSelector(), true);
     }
 
     @Step

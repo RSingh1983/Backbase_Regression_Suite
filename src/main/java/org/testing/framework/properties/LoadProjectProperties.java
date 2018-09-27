@@ -7,9 +7,6 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Created by Ravinder Singh on 03-11-2015.
- */
 public class LoadProjectProperties {
 
     private static final Resource resource = new ClassPathResource("/project.properties");
@@ -23,7 +20,7 @@ public class LoadProjectProperties {
     public static final String REPLACE_CHARACTER_2 = "replace.character.2";
     public static final String REPLACE_CHARACTER_3 = "replace.character.3";
     public static final String REPLACE_CHARACTER_4 = "replace.character.4";
-//    public static final String AJAX_BUSY_IDENTIFIER = "ajax.busy.identifier";
+    public static final String AJAX_BUSY_IDENTIFIER = "ajax.busy.identifier";
 
     //API related properties
     public static final String API_PARAM_DELIMITER = "api.param.delimiter";

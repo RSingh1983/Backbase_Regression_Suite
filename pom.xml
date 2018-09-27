@@ -19,7 +19,7 @@
         <!-- Project properties -->
         <webdriver.driver>chrome</webdriver.driver>
         <featurePath>/*</featurePath>
-        <tags></tags>
+        <tags>@live</tags>
         <env>live</env>
         <envProp>classpath:properties/live.properties</envProp>
 
@@ -360,7 +360,8 @@
                 <configuration>
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
-                        <!--<tags>${tags}</tags>-->
+                        <cucumber.options>--tags ${tags}</cucumber.options>
+                        <env>${env}</env>
                     </systemPropertyVariables>
                     <includes>
                         <include>**/*Tt.java</include>
