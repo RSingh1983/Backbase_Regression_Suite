@@ -13,9 +13,9 @@
     <properties>
         <env>live</env>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.9.45</serenity.version>
-        <serenity.maven.version>1.9.45</serenity.maven.version>
-        <serenity.cucumber.version>1.9.15</serenity.cucumber.version>
+        <serenity.version>1.9.31</serenity.version>
+        <serenity.maven.version>1.9.31</serenity.maven.version>
+        <serenity.cucumber.version>1.9.12</serenity.cucumber.version>
         <spring.common.version>5.0.5.RELEASE</spring.common.version>
         <poi.version>3.11</poi.version>
     </properties>
