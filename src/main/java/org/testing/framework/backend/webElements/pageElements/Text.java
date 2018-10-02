@@ -354,11 +354,11 @@ public class Text extends PageObject {
         return element.getAttribute(attribute);
     }
 
-    public ArrayList<String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath) throws Exception {
+    public ArrayList<String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath, final boolean raiseErrorIfUnavailable) throws Exception {
 
         ArrayList<String> attributeValues = new ArrayList<String>();
         WebElementLocator elementLocator = WebElementLocator.getInstance();
-        List<WebElement> elements = elementLocator.locateMultipleElements(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
+        List<WebElement> elements = elementLocator.locateMultipleElements(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), raiseErrorIfUnavailable);
 
         for(WebElement element : elements){
             attributeValues.add(element.getAttribute(attribute));

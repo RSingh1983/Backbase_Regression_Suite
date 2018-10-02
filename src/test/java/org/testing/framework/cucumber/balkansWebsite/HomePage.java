@@ -10,6 +10,7 @@ import org.eclipse.jetty.client.ValidatingConnectionPool;
 import org.openqa.selenium.JavascriptExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testing.framework.cucumber.CommonPage;
 import org.testing.framework.steps.balkansWebsite.uisteps.HomePageSteps;
 
 import java.io.IOException;
@@ -125,6 +126,7 @@ public class HomePage extends PageObject {
                     fail("src tag of the image is blank");
                 }
             }
+
 
             logger.info("Navigate back to Home Page");
             homePageSteps.click_the_element("Home_Page_Logo");

@@ -235,7 +235,9 @@ public class WebElementLocator {
         if(locator.isRaiseErrorIfUnavailable()) {
             throw e;
         } else {
+            logger.warn("*************************************************************************************");
             logger.warn(e.getMessage());
+            logger.warn("*************************************************************************************");
         }
         return Collections.emptyList();
     }
