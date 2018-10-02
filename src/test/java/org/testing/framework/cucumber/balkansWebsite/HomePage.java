@@ -61,8 +61,8 @@ public class HomePage extends PageObject {
 
             } else {
                 logger.info("Validate Header for Video Article : " + linkText);
-                homePageSteps.scrollToClickElement("Video_Article_Header");
-                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
+//                homePageSteps.scrollToClickElement("Video_Article_Header");
+//                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
 
                 // Validate the Social Media sharing options appear on the Article Page
                 logger.info("Validate Social Media Icons For Video Article");

@@ -54,19 +54,38 @@ public class CommonPage extends PageObject {
     VrijemePageSteps vrijemePageSteps;
 
 
-    public CommonPage() throws IOException { }
+    public CommonPage() throws IOException {
+    }
 
-    private UISteps getUISteps(String page){
-        
-        if(StringUtils.containsIgnoreCase(page, "Blog")) {uiSteps = blogPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Home")) {uiSteps = homePageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Interaktivno")) {uiSteps = interaktivnoPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Mišljenja")) {uiSteps = mišljenjaPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Programi")) {uiSteps = programiPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Teme")) {uiSteps = temePageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Video")) {uiSteps = videoPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Vijesti")) {uiSteps = vijestiPageSteps;}
-        if(StringUtils.containsIgnoreCase(page,"Vrijeme")) {uiSteps = vrijemePageSteps;}
+    private UISteps getUISteps(String page) {
+
+        if (StringUtils.containsIgnoreCase(page, "Blog")) {
+            uiSteps = blogPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Home")) {
+            uiSteps = homePageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Interaktivno")) {
+            uiSteps = interaktivnoPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Mišljenja")) {
+            uiSteps = mišljenjaPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Programi")) {
+            uiSteps = programiPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Teme")) {
+            uiSteps = temePageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Video")) {
+            uiSteps = videoPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Vijesti")) {
+            uiSteps = vijestiPageSteps;
+        }
+        if (StringUtils.containsIgnoreCase(page, "Vrijeme")) {
+            uiSteps = vrijemePageSteps;
+        }
 
         return uiSteps;
     }
@@ -98,7 +117,7 @@ public class CommonPage extends PageObject {
     public void validateLinksAndImagesOnPage(String page) throws Exception {
         // To-Do Validate all the anchors on the page are accessible
         int anchorIndex = 0;
-//        if (getUISteps(page).checkIfElementPresent("Main_Page_Anchors")) {
+        if (getUISteps(page).checkIfElementPresent("Main_Page_Anchors")) {
             for (String anchor : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Anchors", "href")) {
                 logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor);
                 if (anchor != null) {
@@ -110,30 +129,26 @@ public class CommonPage extends PageObject {
                     }
                 }
             }
-//        } else {
-//            logger.info("No Anchors exist on the main " + page);
-//        }
+        } else {
+            logger.info("No Anchors exist on the main " + page);
+        }
 
-//        if (getUISteps(page).checkIfElementPresent("Footer_Anchors")) {
-            for (String anchor : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Anchors", "href")) {
-                logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor);
-                if (anchor != null) {
-                    if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
-                        RestAssured.given().
-                                urlEncodingEnabled(false).
-                                when().get(anchor).
-                                then().assertThat().statusCode(200);
-                    }
+        for (String anchor : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Anchors", "href")) {
+            logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor);
+            if (anchor != null) {
+                if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
+                    RestAssured.given().
+                            urlEncodingEnabled(false).
+                            when().get(anchor).
+                            then().assertThat().statusCode(200);
                 }
             }
-//        } else {
-//            logger.info("No Anchors exist on the Footer of " + page);
-//        }
+        }
 
         //To-Do Validate src of all images is accessible
         int imageIndex = 0;
         // Validate all the images on the Main Page Content
-//        if (getUISteps(page).checkIfElementPresent("Main_Page_Images")) {
+        if (getUISteps(page).checkIfElementPresent("Main_Page_Images")) {
             for (String imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Images", "src")) {
                 logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc);
                 if (imageSrc != "") {
@@ -146,26 +161,22 @@ public class CommonPage extends PageObject {
                     fail("src tag of the image is blank");
                 }
             }
-//        } else {
-//            logger.info("No Images exist on the Footer of " + page);
-//        }
+        } else {
+            logger.info("No Images exist on the Footer of " + page);
+        }
 
         // Validate all the images on the Footer Content
-//        if (getUISteps(page).checkIfElementPresent("Footer_Images")) {
-            for (String imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Footer_Images", "src")) {
-                logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc);
-                if (imageSrc != "") {
-                    RestAssured.given().
-                            urlEncodingEnabled(false).
-                            when().get(imageSrc).
-                            then().assertThat().statusCode(200);
-                    homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
-                } else {
-                    fail("src tag of the image is blank");
-                }
+        for (String imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Footer_Images", "src")) {
+            logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc);
+            if (imageSrc != "") {
+                RestAssured.given().
+                        urlEncodingEnabled(false).
+                        when().get(imageSrc).
+                        then().assertThat().statusCode(200);
+                homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
+            } else {
+                fail("src tag of the image is blank");
             }
-//        } else {
-//            logger.info("No Images exist on the Footer of " + page);
-//        }
+        }
     }
 }

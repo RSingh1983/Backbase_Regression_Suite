@@ -497,6 +497,12 @@
             <element_locator_value>//img[@src='_##_']</element_locator_value>
         </selector>
 
+        <selector>
+            <keyword>Video_Article_Header</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+        </selector>
+
     </Element>
 
     <Element type="text">
