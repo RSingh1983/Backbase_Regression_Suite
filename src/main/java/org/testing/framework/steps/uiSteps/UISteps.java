@@ -719,32 +719,16 @@ public abstract class UISteps extends AuatSteps {
         urlWebElement.isCurrentWindowUrlCorrect(keyword);
     }
 
-    /**
-     * This asserts whether a new window is present with the passed url located in the passed xml field
-     *
-     * @param field The field where the url is locacted in the xml file
-     * @throws Exception If a new window is not opened with the correct url
-     */
     @Step
     public void assert_that_a_new_window_is_open_with_url(String field) throws Exception {
         urlWebElement.isANewWindowOpenWithUrl(field, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
-    /**
-     * This asserts whether a new window is present
-     *
-     * @throws Exception If there is no new window open
-     */
     @Step
     public void assert_that_a_new_window_is_open() throws Exception {
         urlWebElement.isANewWindowOpen();
     }
 
-    /**
-     * This asserts whether a javascript alert is present
-     *
-     * @throws Exception If the alert is not shown
-     */
     @Step
     public void assert_javascript_alert_is_present() throws Exception {
         javaScriptWebElement.isJavascriptAlert();
@@ -765,19 +749,9 @@ public abstract class UISteps extends AuatSteps {
         return javaScriptWebElement.getAlert().getText();
     }
 
-    /**
-     * This will get the defined web element from the webElementsModel.loadtimeout map using the passed key value.
-     * Then it will use this element and wait until it's disappeared before continuing.
-     * Useful when the page needs to load before the test continues
-     *
-     * @param ajaxIdentifier The key value for the element in the webElementsModel.loadtimeout map
-     * @throws Exception
-     */
+
     @Step
     public void waitForAjax(String ajaxIdentifier) throws Exception {
-        // Get the element to wait for and then wait for it
-        //String ajaxElementId = webElementsModel.getLoadTimeout().get(ajaxIdentifier);
-        //Ajax.waitForAjaxElement(ajaxElementId);
         ajaxWebElement.waitForAjaxElement(ajaxIdentifier);
     }
 
@@ -813,6 +787,16 @@ public abstract class UISteps extends AuatSteps {
             logger.error(expectedColor + " not in " + cssColor);
         }
         assertTrue(in);
+    }
+
+    @Step
+    public void assertImagePresent(String field) throws Exception {
+        assertTrue(javaScriptWebElement.imageAppearsOnPage(field, getBeanFilePath(), webElementsModel.getClickSelector()));
+    }
+
+    @Step
+    public void assertImagePresent(String field, String replaceString) throws Exception {
+        assertTrue(javaScriptWebElement.imageAppearsOnPage(field, replaceString, getBeanFilePath(), webElementsModel.getClickSelector()));
     }
 
     @Step

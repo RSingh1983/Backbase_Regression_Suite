@@ -19,6 +19,7 @@ import java.util.Properties;
 import static io.restassured.RestAssured.urlEncodingEnabled;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class HomePage extends PageObject {
 
@@ -29,7 +30,7 @@ public class HomePage extends PageObject {
 
     public HomePage() throws IOException { }
 
-    @Then("^I click on each story of (.*) Panel and validate the Page Headers and Social sharing options$")
+    @Then("^I click on each story of (.*) Panel and validate links and images on each page$")
     public void validatePageDetailsAfterLinkClick(String field) throws Exception {
         for(int articleIndex = 1; articleIndex<=8; articleIndex++ ) {
 
@@ -69,9 +70,9 @@ public class HomePage extends PageObject {
                 homePageSteps.assert_click_element_visible("Video_Article_Share_Mail",linkText.split(" ")[0]);
             }
 
-             // To-Do Validate all the anchors and links on the page are accessbile
+             // To-Do Validate all the anchors on the page are accessible
             int anchorIndex = 0;
-            for(String anchor: homePageSteps.getAttributeValueFromAllClickElement("All_Anchors","href")) {
+            for(String anchor: homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Anchors","href")) {
                 logger.info("Validating Anchor " + ++anchorIndex + " of Article Page " + articleIndex + " : " + anchor);
                 if (anchor != null ) {
                     if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
@@ -83,25 +84,48 @@ public class HomePage extends PageObject {
                 }
             }
 
-//            int linkIndex = 0;
-//            for(String link: homePageSteps.getAttributeValueFromAllClickElement("All_Links","href")) {
-//                logger.info("Validating Link " + ++linkIndex + " of Article Page " + articleIndex + " : " + link);
-//                RestAssured.given().
-//                        urlEncodingEnabled(false).
-//                        when().get(link).
-//                        then().assertThat().statusCode(200);
-//            }
+            for(String anchor: homePageSteps.getAttributeValueFromAllClickElement("Footer_Anchors","href")) {
+                logger.info("Validating Anchor " + ++anchorIndex + " of Article Page " + articleIndex + " : " + anchor);
+                if (anchor != null ) {
+                    if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
+                        RestAssured.given().
+                                urlEncodingEnabled(false).
+                                when().get(anchor).
+                                then().assertThat().statusCode(200);
+                    }
+                }
+            }
 
-//            //To-Do Validate src of all images is accessible
-//            int imageIndex = 0;
-//            for(String image: homePageSteps.getAttributeValueFromAllClickElement("All_Images","src")) {
-//                logger.info("Validating Image " + ++imageIndex + " of Article Page " + articleIndex + " : " + image);
-//                RestAssured.given().
-//                        urlEncodingEnabled(false).
-//                        when().get(image).
-//                        then().assertThat().statusCode(200);
-//            }
-//
+            //To-Do Validate src of all images is accessible
+            int imageIndex = 0;
+            // Validate all the images on the Main Page Content
+            for(String imageSrc: homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Images","src")) {
+                logger.info("Validating Image " + ++imageIndex + " of Article Page " + articleIndex + " : " + imageSrc);
+                if(imageSrc!="") {
+                    RestAssured.given().
+                            urlEncodingEnabled(false).
+                            when().get(imageSrc).
+                            then().assertThat().statusCode(200);
+                    homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
+                } else{
+                    fail("src tag of the image is blank");
+                }
+            }
+
+            // Validate all the images on the Footer Content
+            for(String imageSrc: homePageSteps.getAttributeValueFromAllClickElement("Footer_Images","src")) {
+                logger.info("Validating Image " + ++imageIndex + " of Article Page " + articleIndex + " : " + imageSrc);
+                if(imageSrc!="") {
+                    RestAssured.given().
+                            urlEncodingEnabled(false).
+                            when().get(imageSrc).
+                            then().assertThat().statusCode(200);
+                    homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
+                } else{
+                    fail("src tag of the image is blank");
+                }
+            }
+
             logger.info("Navigate back to Home Page");
             homePageSteps.click_the_element("Home_Page_Logo");
 

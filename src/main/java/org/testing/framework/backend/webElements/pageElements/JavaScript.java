@@ -334,5 +334,47 @@ public class JavaScript extends PageObject {
         logger.info("found element" + Element);
 
     }
+
+    public boolean imageAppearsOnPage(final String field, final String beanFileName, final String beanPath) throws Exception{
+
+        // Locate the passed element
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        WebElement elementFound = elementLocator.locateElement(field, beanFileName, beanPath, getDriver(), true);
+
+        boolean loaded = false;
+        // If the element has been found
+        if (elementFound != null) {
+            Object result = ((JavascriptExecutor) getDriver()).executeScript(
+                    "return arguments[0].complete && " +
+                            "typeof arguments[0].naturalWidth != \"undefined\" && " +
+                            "arguments[0].naturalWidth > 0", elementFound);
+            if (result instanceof Boolean) {
+                loaded = (Boolean) result;
+                System.out.println(loaded);
+            }
+        }
+        return loaded;
+    }
+
+    public boolean imageAppearsOnPage(final String field, final String replaceString, final String beanFileName, final String beanPath) throws Exception{
+
+        // Locate the passed element
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        WebElement elementFound = elementLocator.locateElement(field, replaceString, beanFileName, beanPath, getDriver(), true);
+
+        boolean loaded = false;
+        // If the element has been found
+        if (elementFound != null) {
+            Object result = ((JavascriptExecutor) getDriver()).executeScript(
+                    "return arguments[0].complete && " +
+                            "typeof arguments[0].naturalWidth != \"undefined\" && " +
+                            "arguments[0].naturalWidth > 0", elementFound);
+            if (result instanceof Boolean) {
+                loaded = (Boolean) result;
+                System.out.println(loaded);
+            }
+        }
+        return loaded;
+    }
 }
 

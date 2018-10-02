@@ -43,5 +43,14 @@ public class Select extends PageObject {
         logger.error("Option not found: size: "+options.size()+", value: "+value);
         assertTrue(false);
     }
+
+    public void ClickDropDownAndSelectValue(String Dropdown,String Value) throws  Exception
+    {
+        logger.info("before select initiated");
+        org.openqa.selenium.support.ui.Select SelectByVisibleText=new org.openqa.selenium.support.ui.Select(getDriver().findElement(By.id(Dropdown)));
+        logger.info(" select initiated");
+        SelectByVisibleText.selectByVisibleText(Value);
+        logger.info("value initiated");
+    }
 }
 
