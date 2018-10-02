@@ -59,6 +59,7 @@ public class HomePage extends PageObject {
 
             } else {
                 logger.info("Validate Header for Video Article : " + linkText);
+                homePageSteps.scrollToClickElement("Video_Article_Header");
                 assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
 
                 // Validate the Social Media sharing options appear on the Article Page
@@ -68,12 +69,12 @@ public class HomePage extends PageObject {
                 homePageSteps.assert_click_element_visible("Video_Article_Share_Mail",linkText.split(" ")[0]);
             }
 
-            // To-Do Validate all the anchors and links on the page are accessbile
+             // To-Do Validate all the anchors and links on the page are accessbile
             int anchorIndex = 0;
             for(String anchor: homePageSteps.getAttributeValueFromAllClickElement("All_Anchors","href")) {
                 logger.info("Validating Anchor " + ++anchorIndex + " of Article Page " + articleIndex + " : " + anchor);
                 if (anchor != null ) {
-                    if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript:void(0)")) && !(anchor.contains("mailto:?subject"))) {
+                    if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
                         RestAssured.given().
                                 urlEncodingEnabled(false).
                                 when().get(anchor).
@@ -82,25 +83,25 @@ public class HomePage extends PageObject {
                 }
             }
 
-            int linkIndex = 0;
-            for(String link: homePageSteps.getAttributeValueFromAllClickElement("All_Links","href")) {
-                logger.info("Validating Link " + ++linkIndex + " of Article Page " + articleIndex + " : " + link);
-                RestAssured.given().
-                        urlEncodingEnabled(false).
-                        when().get(link).
-                        then().assertThat().statusCode(200);
-            }
+//            int linkIndex = 0;
+//            for(String link: homePageSteps.getAttributeValueFromAllClickElement("All_Links","href")) {
+//                logger.info("Validating Link " + ++linkIndex + " of Article Page " + articleIndex + " : " + link);
+//                RestAssured.given().
+//                        urlEncodingEnabled(false).
+//                        when().get(link).
+//                        then().assertThat().statusCode(200);
+//            }
 
-            //To-Do Validate src of all images is accessible
-            int imageIndex = 0;
-            for(String image: homePageSteps.getAttributeValueFromAllClickElement("All_Images","src")) {
-                logger.info("Validating Image " + ++imageIndex + " of Article Page " + articleIndex + " : " + image);
-                RestAssured.given().
-                        urlEncodingEnabled(false).
-                        when().get(image).
-                        then().assertThat().statusCode(200);
-            }
-
+//            //To-Do Validate src of all images is accessible
+//            int imageIndex = 0;
+//            for(String image: homePageSteps.getAttributeValueFromAllClickElement("All_Images","src")) {
+//                logger.info("Validating Image " + ++imageIndex + " of Article Page " + articleIndex + " : " + image);
+//                RestAssured.given().
+//                        urlEncodingEnabled(false).
+//                        when().get(image).
+//                        then().assertThat().statusCode(200);
+//            }
+//
             logger.info("Navigate back to Home Page");
             homePageSteps.click_the_element("Home_Page_Logo");
 

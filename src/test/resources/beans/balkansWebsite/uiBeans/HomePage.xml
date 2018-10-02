@@ -405,7 +405,7 @@
         <selector>
             <keyword>Top_Left_Panel_New_Stories</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[contains(@class,'panel-region-top-left')]//div[@id='views-bootstrap-grid-1']/div[_##_]//h5//a</element_locator_value>
+            <element_locator_value>//div[contains(@class,'panel-region-top-left')]//div[@id='views-bootstrap-grid-1']/div[_##_]//h5/a</element_locator_value>
         </selector>
 
         <!-- Selectors for Social Media Sharing on Articles Page -->
@@ -456,13 +456,14 @@
         <selector>
             <keyword>All_Links</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//links</element_locator_value>
+            <element_locator_value>//link</element_locator_value>
         </selector>
 
         <selector>
             <keyword>All_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//img</element_locator_value>
+            <!--<selector_debug>All_Images</selector_debug>-->
         </selector>
 
     </Element>
@@ -485,6 +486,12 @@
         <!-- Selectors for Heading on specific Articles Page -->
         <selector>
             <keyword>Normal_Article_Header</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Video_Article_Header</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//h1[@class='page-header']</element_locator_value>
         </selector>

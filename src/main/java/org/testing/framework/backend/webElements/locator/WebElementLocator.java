@@ -284,22 +284,7 @@ public class WebElementLocator {
 
         // Update all the replaceDelimiter
         String searchValue = "";
-        //if(locator.replaceDelimiter.contains(LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_TEXT_DELIMITER)) &&
-        //locator.replaceString.contains(LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_TEXT_DELIMITER))) {
-//        String[] replaceDelimiterList = locator.replaceDelimiter.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_TEXT_DELIMITER));
-//        String[] replaceStringList = locator.replaceString.split(LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_TEXT_DELIMITER));
-//
-//        searchValue = selector.getLocatorValue().replace(replaceDelimiterList[0], replaceStringList[0]);
-//        if(replaceDelimiterList.length == replaceStringList.length) {
-//            for(int i=1;i<replaceDelimiterList.length;i++){
-//                searchValue = searchValue.replace(replaceDelimiterList[i], replaceStringList[i]);
-//            }
-//        } else {
-//            throw new Exception ("Number of Delimeters and Replace Strings are not same");
-//        }
-        //} else {
         searchValue = selector.getLocatorValue().replace(locator.replaceDelimiter, locator.replaceString);
-        // }
 
         String message = "Looking for element by " + selectorType + ": " + searchValue + ", keyword: " + locator.getKeyword();
         if(selector.isLookingInsideAnElement()) {
