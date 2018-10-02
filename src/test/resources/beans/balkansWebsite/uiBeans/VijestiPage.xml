@@ -131,20 +131,20 @@
         <selector>
             <keyword>Header_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//header[@id='navbar']//img</element_locator_value>
+            <element_locator_value>//header[@id='navbar']//a/img</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Main_Page_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//section[@id='block-system-main']//img</element_locator_value>
+            <element_locator_value>//section[@id='block-system-main']//a/img</element_locator_value>
             <!--<selector_debug>All_Images</selector_debug>-->
         </selector>
 
         <selector>
             <keyword>Footer_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//footer[@class='content-bottom']//img</element_locator_value>
+            <element_locator_value>//footer[@class='content-bottom']//a/img</element_locator_value>
         </selector>
 
         <selector>
