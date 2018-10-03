@@ -363,12 +363,12 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
-    public ArrayList<String> getAttributeValueFromAllClickElement(String field, String attribute) throws Exception {
+    public HashMap<String,String> getAttributeValueFromAllClickElement(String field, String attribute) throws Exception {
         return textWebElement.getAttributeValueFromAllElement(field, "", attribute, getBeanFilePath(), webElementsModel.getClickSelector(),false);
     }
 
     @Step
-    public ArrayList<String> getAttributeValueFromAllClickElement(String field, String fieldReplacementValue, String attribute) throws Exception {
+    public HashMap<String,String> getAttributeValueFromAllClickElement(String field, String fieldReplacementValue, String attribute) throws Exception {
         return textWebElement.getAttributeValueFromAllElement(field, fieldReplacementValue, attribute, getBeanFilePath(), webElementsModel.getClickSelector(),false);
     }
 

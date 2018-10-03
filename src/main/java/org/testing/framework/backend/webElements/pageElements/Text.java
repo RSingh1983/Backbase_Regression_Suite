@@ -2,6 +2,7 @@ package org.testing.framework.backend.webElements.pageElements;
 
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.testing.framework.properties.LoadProjectProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -354,17 +356,39 @@ public class Text extends PageObject {
         return element.getAttribute(attribute);
     }
 
-    public ArrayList<String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath, final boolean raiseErrorIfUnavailable) throws Exception {
+//    public ArrayList<String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath, final boolean raiseErrorIfUnavailable) throws Exception {
+//
+//        ArrayList<String> attributeValues = new ArrayList<String>();
+//        WebElementLocator elementLocator = WebElementLocator.getInstance();
+//        List<WebElement> elements = elementLocator.locateMultipleElements(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), raiseErrorIfUnavailable);
+//
+//        for(WebElement element : elements){
+//            logger.info("Element : " + element.getText());
+//            logger.info("Element Attribute: " + element.getAttribute(attribute));
+//
+//            String src = ((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString();
+//            logger.info("Actual Source is: " + src);
+//
+//            attributeValues.add(element.getAttribute(attribute));
+//        }
+//        return attributeValues;
+//    }
 
-        ArrayList<String> attributeValues = new ArrayList<String>();
+    public HashMap<String,String> getAttributeValueFromAllElement(final String field, final String fieldReplacement, final String attribute, final String beanFileName, final String beanPath, final boolean raiseErrorIfUnavailable) throws Exception {
+
+        HashMap<String,String> attributeValues = new HashMap<>();
         WebElementLocator elementLocator = WebElementLocator.getInstance();
         List<WebElement> elements = elementLocator.locateMultipleElements(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), raiseErrorIfUnavailable);
 
         for(WebElement element : elements){
-            attributeValues.add(element.getAttribute(attribute));
+//            logger.info("Actual Attribute in Source: " + ((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString());
+//            logger.info("Element Attribute by Selenium: " + element.getAttribute(attribute));
+
+            attributeValues.put(((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString(),element.getAttribute(attribute));
         }
         return attributeValues;
     }
+
 
 
 }

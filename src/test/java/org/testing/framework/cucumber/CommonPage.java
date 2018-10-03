@@ -14,6 +14,7 @@ import org.testing.framework.steps.balkansWebsite.uisteps.*;
 import org.testing.framework.steps.uiSteps.UISteps;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -117,25 +118,25 @@ public class CommonPage extends PageObject {
     public void validateLinksAndImagesOnPage(String page) throws Exception {
         // To-Do Validate all the anchors on the page are accessible
         int anchorIndex = 0;
-        for (String anchor : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Anchors", "href")) {
-            logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor);
-            if (anchor != null) {
-                if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
+        for (Map.Entry<String,String>  anchor : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Anchors", "href").entrySet()) {
+            logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor.getValue());
+            if (anchor.getValue() != null) {
+                if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
                     RestAssured.given().
                             urlEncodingEnabled(false).
-                            when().get(anchor).
+                            when().get(anchor.getValue()).
                             then().assertThat().statusCode(200);
                 }
             }
         }
 
-        for (String anchor : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Anchors", "href")) {
-            logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor);
-            if (anchor != null) {
-                if (!(anchor.contains("www.linkedin.com/company")) && !(anchor.contains("javascript")) && !(anchor.contains("mailto:?subject"))) {
+        for (Map.Entry<String,String>  anchor : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Anchors", "href").entrySet()) {
+            logger.info("Validating Anchor " + ++anchorIndex + " of " + page + " : " + anchor.getValue());
+            if (anchor.getValue() != null) {
+                if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
                     RestAssured.given().
                             urlEncodingEnabled(false).
-                            when().get(anchor).
+                            when().get(anchor.getValue()).
                             then().assertThat().statusCode(200);
                 }
             }
@@ -144,28 +145,28 @@ public class CommonPage extends PageObject {
         //To-Do Validate src of all images is accessible
         int imageIndex = 0;
         // Validate all the images on the Main Page Content
-        for (String imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Images", "src")) {
-            logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc);
-            if (imageSrc != "") {
+        for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Images", "src").entrySet()) {
+            logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
+            if (imageSrc.getKey() != "") {
                 RestAssured.given().
                         urlEncodingEnabled(false).
-                        when().get(imageSrc).
+                        when().get(imageSrc.getValue()).
                         then().assertThat().statusCode(200);
-                getUISteps(page).assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
+                getUISteps(page).assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
             } else {
                 fail("src tag of the image is blank");
             }
         }
 
         // Validate all the images on the Footer Content
-        for (String imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Footer_Images", "src")) {
-            logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc);
-            if (imageSrc != "") {
+        for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Images", "src").entrySet()) {
+            logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
+            if (imageSrc.getKey() != "") {
                 RestAssured.given().
                         urlEncodingEnabled(false).
-                        when().get(imageSrc).
+                        when().get(imageSrc.getValue()).
                         then().assertThat().statusCode(200);
-                homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc);
+                getUISteps(page).assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
             } else {
                 fail("src tag of the image is blank");
             }
