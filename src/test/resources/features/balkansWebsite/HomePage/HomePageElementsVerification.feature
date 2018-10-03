@@ -7,7 +7,7 @@ Feature: As a Balkans Site User I should be able to Navigate through following d
   Scenario: Home Page - Validation of UI Elements
     Given I browse webSite using BALKANS_URL url of Home Page
     Then I should see the below mentioned Header Menu items on the Landing Page
-      | Header_Menu1 | Header_Menu2 | Header_Menu3 | Header_Menu4 | Header_Menu5 | Header_Menu6 | Header_Menu7 | Header_Menu8 | Header_Menu9 |
+      | Header_Menu1 | Header_Menu2 | Header_Menu3 | Header_Menu4 | Header_Menu5 | Header_Menu6 | Header_Menu7 | Header_Menu8 | Header_Menu |
       | Vijesti      | Teme         | Mišljenja    | Programi     | Video        | Blog         | Interaktivno | Vrijeme      | Uživo        |
     Then I should see the below mentioned Header Social Media items on the Landing Page
       | Header1  | Header2 | Header3     | Header4   | Header5  | Header6 | Header7 | Header8     |
