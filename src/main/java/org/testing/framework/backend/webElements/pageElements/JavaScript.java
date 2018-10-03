@@ -14,6 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testing.framework.properties.LoadProjectProperties;
 
+import java.util.List;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class JavaScript extends PageObject {
@@ -350,7 +353,6 @@ public class JavaScript extends PageObject {
                             "arguments[0].naturalWidth > 0", elementFound);
             if (result instanceof Boolean) {
                 loaded = (Boolean) result;
-                System.out.println(loaded);
             }
         }
         return loaded;
@@ -371,10 +373,30 @@ public class JavaScript extends PageObject {
                             "arguments[0].naturalWidth > 0", elementFound);
             if (result instanceof Boolean) {
                 loaded = (Boolean) result;
-                System.out.println(loaded);
             }
         }
         return loaded;
+    }
+
+    public void allImageAppearsOnPage(final String field, final String beanFileName, final String beanPath) throws Exception{
+
+        // Locate the passed element
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        List<WebElement> elementsFound = elementLocator.locateMultipleElements(field, beanFileName, beanPath, getDriver(), true);
+
+        boolean loaded = false;
+        for(WebElement elementFound: elementsFound){
+            logger.info("Validating image with src : " + elementFound.getAttribute("src"));
+            Object result = ((JavascriptExecutor) getDriver()).executeScript(
+                    "return arguments[0].complete && " +
+                            "typeof arguments[0].naturalWidth != \"undefined\" && " +
+                            "arguments[0].naturalWidth > 0", elementFound);
+            if (result instanceof Boolean) {
+                loaded = (Boolean) result;
+            }
+            assertTrue(loaded);
+            Thread.sleep(50000);
+        }
     }
 }
 

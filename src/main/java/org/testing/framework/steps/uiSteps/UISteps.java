@@ -800,6 +800,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public void assertAllImagesPresent(String field) throws Exception {
+        javaScriptWebElement.allImageAppearsOnPage(field, getBeanFilePath(), webElementsModel.getClickSelector());
+    }
+
+    @Step
     public void page_refresh() {
         urlWebElement.getDriver().navigate().refresh();
     }

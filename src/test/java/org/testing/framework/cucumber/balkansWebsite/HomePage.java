@@ -137,4 +137,13 @@ public class HomePage extends PageObject {
 
     }
 
+    @Then("^I validate all the images are visible on the Home Page$")
+    public void validateImageVisible() throws Exception {
+
+        //To-Do Validate src of all images is accessible
+
+
+        homePageSteps.assertAllImagesPresent("Main_Page_Images");
+    }
+
 }
