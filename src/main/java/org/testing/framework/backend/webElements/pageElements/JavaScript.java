@@ -385,8 +385,9 @@ public class JavaScript extends PageObject {
         List<WebElement> elementsFound = elementLocator.locateMultipleElements(field, beanFileName, beanPath, getDriver(), true);
 
         boolean loaded = false;
+        int imageIndex = 0;
         for(WebElement elementFound: elementsFound){
-            logger.info("Validating image with src : " + elementFound.getAttribute("src"));
+            logger.info("Validating image " + ++imageIndex+ "with src : " + elementFound.getAttribute("src"));
             Object result = ((JavascriptExecutor) getDriver()).executeScript(
                     "return arguments[0].complete && " +
                             "typeof arguments[0].naturalWidth != \"undefined\" && " +
