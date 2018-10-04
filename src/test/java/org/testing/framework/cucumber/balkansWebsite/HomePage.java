@@ -56,8 +56,8 @@ public class HomePage extends PageObject {
                 // Validate the Social Media sharing options appear on the Article Page
                 logger.info("Validate Social Media Icons For Normal Article");
                 homePageSteps.assert_click_element_visible("Normal_Article_Share_Facebook");
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter",linkText.split(" ")[0]);
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0]);
+                homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter",linkText.split(" ")[0].replace("'",""));
+                homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0].replace("'",""));
 
             } else {
                 logger.info("Validate Header for Video Article : " + linkText);
