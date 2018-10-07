@@ -141,8 +141,6 @@ public class HomePage extends PageObject {
     public void validateImageVisible() throws Exception {
 
         //To-Do Validate src of all images is accessible
-
-
         homePageSteps.assertAllImagesPresent("Main_Page_Images");
     }
 
