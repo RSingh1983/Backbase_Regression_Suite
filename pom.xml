@@ -16,6 +16,7 @@
         <serenity.version>1.9.45</serenity.version>
         <serenity.maven.version>1.9.45</serenity.maven.version>
         <serenity.cucumber.version>1.9.15</serenity.cucumber.version>
+        <serenity.jira.version>1.9.0</serenity.jira.version>
         <spring.common.version>5.0.5.RELEASE</spring.common.version>
         <poi.version>3.11</poi.version>
     </properties>
@@ -73,6 +74,16 @@
             <version>${serenity.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-jira-plugin</artifactId>
+            <version>${serenity.jira.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-jira-requirements-provider</artifactId>
+            <version>${serenity.jira.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.25</version>
@@ -83,9 +94,9 @@
             <version>1.7.25</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-api</artifactId>-->
-            <!--<version>1.6.1</version>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--<version>1.6.1</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -152,7 +163,6 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
-
 
 
     </dependencies>
@@ -261,6 +271,16 @@
                         <artifactId>serenity-core</artifactId>
                         <version>${serenity.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-jira-requirements-provider</artifactId>
+                        <version>${serenity.jira.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-jira-plugin</artifactId>
+                        <version>${serenity.jira.version}</version>
+                    </dependency>
                 </dependencies>
                 <executions>
                     <execution>
@@ -271,6 +291,7 @@
                         </goals>
                     </execution>
                 </executions>
+
             </plugin>
         </plugins>
     </build>
