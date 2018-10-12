@@ -488,7 +488,7 @@
         <selector>
             <keyword>Main_Page_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//section[@id='block-system-main']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
+            <element_locator_value>//section[@id='block-system-main']//a/img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
             <!--<selector_parent>All_Visible_Elements</selector_parent>-->
         </selector>
 
