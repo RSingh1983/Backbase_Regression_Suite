@@ -50,81 +50,88 @@ public class HomePage extends PageObject {
             //Validate Header of the Article
             logger.info("Validate Header of the Article");
             if(articleType.equalsIgnoreCase("Normal Article")) {
-                logger.info("Validate Header for Normal Article : " + linkText);
+//                logger.info("Validate Header for Normal Article : " + linkText);
+                logger.info("Page Header: " + homePageSteps.getTextFromTextElement("Normal_Article_Header"));
                 assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Normal_Article_Header")));
 
                 // Validate the Social Media sharing options appear on the Article Page
                 logger.info("Validate Social Media Icons For Normal Article");
                 homePageSteps.assert_click_element_visible("Normal_Article_Share_Facebook");
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter", linkText.split(" ")[0].replace("'", ""));
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail", linkText.split(" ")[0].replace("'", ""));
+                homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter",linkText.split(" ")[0].replace("'",""));
+                homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0].replace("'",""));
 
-//            } else {
-//                logger.info("Validate Header for Video Article : " + linkText);
-////                homePageSteps.scrollToClickElement("Video_Article_Header");
-////                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
-//
-//                // Validate the Social Media sharing options appear on the Article Page
-//                logger.info("Validate Social Media Icons For Video Article");
-//                homePageSteps.assert_click_element_visible("Video_Article_Share_Facebook");
-//                homePageSteps.assert_click_element_visible("Video_Article_Share_Twitter",linkText.split(" ")[0]);
-//                homePageSteps.assert_click_element_visible("Video_Article_Share_Mail",linkText.split(" ")[0]);
-//            }
+            } else {
+                logger.info("Validate Header for Video Article : " + linkText);
+//                homePageSteps.scrollToClickElement("Video_Article_Header");
+//                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
 
-                // To-Do Validate all the anchors on the page are accessible
-                int anchorIndex = 0;
-                for (Map.Entry<String, String> anchor : homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Anchors", "href").entrySet()) {
-                    logger.info("Validating Anchor " + ++anchorIndex + " of Article Page: " + anchor.getValue());
-                    if (anchor.getValue() != null) {
-                        if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
-                            RestAssured.given().
-                                    urlEncodingEnabled(false).
-                                    when().get(anchor.getValue()).
-                                    then().assertThat().statusCode(200);
-                        }
-                    }
-                }
+                // Validate the Social Media sharing options appear on the Article Page
+                logger.info("Validate Social Media Icons For Video Article");
+                homePageSteps.assert_click_element_visible("Video_Article_Share_Facebook");
+                homePageSteps.assert_click_element_visible("Video_Article_Share_Twitter",linkText.split(" ")[0]);
+                homePageSteps.assert_click_element_visible("Video_Article_Share_Mail",linkText.split(" ")[0]);
 
-                for (Map.Entry<String, String> anchor : homePageSteps.getAttributeValueFromAllClickElement("Footer_Anchors", "href").entrySet()) {
-                    logger.info("Validating Anchor " + ++anchorIndex + " of  Article Page: " + anchor.getValue());
-                    if (anchor.getValue() != null) {
-                        if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
-                            RestAssured.given().
-                                    urlEncodingEnabled(false).
-                                    when().get(anchor.getValue()).
-                                    then().assertThat().statusCode(200);
-                        }
-                    }
-                }
+            }
 
-                //To-Do Validate src of all images is accessible
-                int imageIndex = 0;
-                // Validate all the images on the Main Page Content
-                for (Map.Entry<String, String> imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Images", "src").entrySet()) {
-                    logger.info("Validating Image " + ++imageIndex + " of  Article Page: : " + imageSrc.getKey());
-                    if (imageSrc.getKey() != "") {
+            logger.info("********************* Anchors Validation ******************************************************");
+
+            // To-Do Validate all the anchors on the page are accessible
+            int anchorIndex = 0;
+            for (Map.Entry<String,String>  anchor : homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Anchors", "href").entrySet()) {
+                logger.info("Validating Anchor " + ++anchorIndex + " of "+ articleIndex + " Article Page: " + anchor.getValue());
+                if (anchor.getValue() != null) {
+                    if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
                         RestAssured.given().
                                 urlEncodingEnabled(false).
-                                when().get(imageSrc.getValue()).
+                                when().get(anchor.getValue()).
                                 then().assertThat().statusCode(200);
-                        homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
-                    } else {
-                        fail("src tag of the image is blank");
                     }
                 }
+            }
 
-                // Validate all the images on the Footer Content
-                for (Map.Entry<String, String> imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Footer_Images", "src").entrySet()) {
-                    logger.info("Validating Image " + ++imageIndex + " of  Article Page: : " + imageSrc.getKey());
-                    if (imageSrc.getKey() != "") {
+            for (Map.Entry<String,String>  anchor : homePageSteps.getAttributeValueFromAllClickElement("Footer_Anchors", "href").entrySet()) {
+                logger.info("Validating Anchor " + ++anchorIndex + " of "+ articleIndex + " Article Page: " + anchor.getValue());
+                if (anchor.getValue() != null) {
+                    if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))) {
                         RestAssured.given().
                                 urlEncodingEnabled(false).
-                                when().get(imageSrc.getValue()).
+                                when().get(anchor.getValue()).
                                 then().assertThat().statusCode(200);
-                        homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
-                    } else {
-                        fail("src tag of the image is blank");
                     }
+                }
+            }
+
+            logger.info("********************* Image Validation ******************************************************");
+
+            //To-Do Validate src of all images is accessible
+            int imageIndex = 0;
+            // Validate all the images on the Main Page Content
+            for (Map.Entry<String,String> imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Main_Page_Images", "src").entrySet()) {
+                logger.info("Validating Image " + ++imageIndex + " of  " + articleIndex + " Article Page: : " + imageSrc.getKey());
+                if (imageSrc.getKey() != "") {
+                    RestAssured.given().
+                            urlEncodingEnabled(false).
+                            when().get(imageSrc.getValue()).
+                            then().assertThat().statusCode(200);
+                    homePageSteps.scrollToClickElement("ImagePlaceholderForVisibility", imageSrc.getKey());
+                    homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
+                } else {
+                    fail("src tag of the image is blank");
+                }
+            }
+
+            // Validate all the images on the Footer Content
+            for (Map.Entry<String,String> imageSrc : homePageSteps.getAttributeValueFromAllClickElement("Footer_Images", "src").entrySet()) {
+                logger.info("Validating Image " + ++imageIndex + " of " + articleIndex + " Article Page: : " + imageSrc.getKey());
+                if (imageSrc.getKey() != "") {
+                    RestAssured.given().
+                            urlEncodingEnabled(false).
+                            when().get(imageSrc.getValue()).
+                            then().assertThat().statusCode(200);
+                    homePageSteps.scrollToClickElement("ImagePlaceholderForVisibility", imageSrc.getKey());
+                    homePageSteps.assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
+                } else {
+                    fail("src tag of the image is blank");
                 }
             }
 

@@ -82,14 +82,13 @@
         <selector>
             <keyword>Main_Page_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//section[@id='block-system-main']//a/img</element_locator_value>
-            <!--<selector_debug>All_Images</selector_debug>-->
+            <element_locator_value>//section[@id='block-system-main']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Footer_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//footer[@class='content-bottom']//a/img</element_locator_value>
+            <element_locator_value>//footer[@class='content-bottom']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
         </selector>
 
         <selector>

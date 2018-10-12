@@ -464,6 +464,13 @@
             <keyword>Main_Page_Anchors</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//section[@id='block-system-main']//a</element_locator_value>
+            <!--<selector_parent>All_Visible_Elements</selector_parent>-->
+        </selector>
+
+        <selector>
+            <keyword>All_Visible_Elements</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']</element_locator_value>
         </selector>
 
         <selector>
@@ -481,13 +488,14 @@
         <selector>
             <keyword>Main_Page_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//section[@id='block-system-main']//a/img</element_locator_value>
+            <element_locator_value>//section[@id='block-system-main']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
+            <!--<selector_parent>All_Visible_Elements</selector_parent>-->
         </selector>
 
         <selector>
             <keyword>Footer_Images</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//footer[@class='content-bottom']//a/img</element_locator_value>
+            <element_locator_value>//footer[@class='content-bottom']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
         </selector>
 
         <selector>
@@ -500,6 +508,12 @@
             <keyword>Video_Article_Header</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//h1[@class='page-header']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Related_Video_Articles_List</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-panels-mini-related-videos-mini-panel']</element_locator_value>
         </selector>
 
         <!-- Live Video Selectors-->

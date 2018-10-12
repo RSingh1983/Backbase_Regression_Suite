@@ -7,3 +7,4 @@ Feature: As a Balkans Site User I should be able to see and navigate through Blo
     Then I should see the below mentioned Section items on the Blog Page
       | MainSection |  SubSection2 |
       | Blog        |  Top_blogeri |
+    Then I validate all links and images on the Blog Page
