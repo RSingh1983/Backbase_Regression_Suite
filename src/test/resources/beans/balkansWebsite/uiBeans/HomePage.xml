@@ -504,10 +504,17 @@
             <element_locator_value>//img[@src='_##_']</element_locator_value>
         </selector>
 
+        <!-- Selectors for Heading on specific Articles Page -->
+        <selector>
+            <keyword>Normal_Article_Header</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+        </selector>
+
         <selector>
             <keyword>Video_Article_Header</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+            <element_locator_value>//div[@property]/h1</element_locator_value>
         </selector>
 
         <selector>
@@ -517,10 +524,47 @@
         </selector>
 
         <!-- Live Video Selectors-->
+
         <selector>
-            <keyword>LiveYouTubeVideo</keyword>
-            <element_locator_type>linkText</element_locator_type>
-            <element_locator_value>Uživo</element_locator_value>
+            <keyword>LiveVideo_Player</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'html5-video-player')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_PlayerVideo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//video[contains(@class,'html5-main-video')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_FooterLink</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(.,'Programska šema')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_MiddlePlayButton</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-large-play-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_LowerPlayPauseButton</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-play-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_YoutubeLink</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(@class,'ytp-youtube-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_FullscreenLink</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-fullscreen-button')]</element_locator_value>
         </selector>
 
     </Element>
@@ -540,17 +584,31 @@
             <element_locator_value>//div[@class='video-sharing-label' and text()='Podijeli']</element_locator_value>
         </selector>
 
-        <!-- Selectors for Heading on specific Articles Page -->
+        <!-- Article Page details-->
         <selector>
-            <keyword>Normal_Article_Header</keyword>
+            <keyword>Article_MainImage</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+            <element_locator_value>//div[contains(@class,'view-mode-full')]/img</element_locator_value>
         </selector>
 
         <selector>
-            <keyword>Video_Article_Header</keyword>
+            <keyword>Article_MainVideo_Iframe</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//h1[@class='page-header']</element_locator_value>
+            <element_locator_value>//iframe[contains(@class,'media-youtube-player')]</element_locator_value>
+        </selector>
+
+        <!-- Live Video Selectors-->
+
+        <selector>
+            <keyword>LiveVideo_Iframe</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>media-youtube-sxc8dttgwmu</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_HeaderLabel</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h2[contains(.,'Uživo')]</element_locator_value>
         </selector>
 
     </Element>

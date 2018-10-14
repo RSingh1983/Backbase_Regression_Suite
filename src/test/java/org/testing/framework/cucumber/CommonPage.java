@@ -54,6 +54,9 @@ public class CommonPage extends PageObject {
     @Steps
     VrijemePageSteps vrijemePageSteps;
 
+    @Steps
+    UživoPageSteps uživoPageSteps;
+
 
     public CommonPage() throws IOException {
     }
@@ -87,6 +90,9 @@ public class CommonPage extends PageObject {
         if (StringUtils.containsIgnoreCase(page, "Vrijeme")) {
             uiSteps = vrijemePageSteps;
         }
+        if (StringUtils.containsIgnoreCase(page, "Uživo")) {
+            uiSteps = uživoPageSteps;
+        }
 
         return uiSteps;
     }
@@ -94,7 +100,7 @@ public class CommonPage extends PageObject {
     @Given("^I browse webSite using (.*) url of (.*)$")
     public void openURL(String url, String page) throws Exception {
         getUISteps(page).open_site(url);
-//        getUISteps(page).page_refresh();
+        getUISteps(page).page_refresh();
     }
 
     @When("^I click the (.*) element for (.*)$")
@@ -108,7 +114,8 @@ public class CommonPage extends PageObject {
         for (Map<String, String> dataMap : webElements.asMaps(String.class, String.class)) {
             for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                 logger.info("Validate Element " + entry.getKey() + " \"" + entry.getValue() + "\" is present on the Page");
-                getUISteps(page).scrollToClickElement(entry.getKey() + "_" + entry.getValue());
+                getUISteps(page).scrollToClickElementXCoordinate(entry.getKey() + "_" + entry.getValue());
+//                getUISteps(page).scrollToClickElement(entry.getKey() + "_" + entry.getValue());
                 getUISteps(page).assert_click_element_visible(entry.getKey() + "_" + entry.getValue());
             }
         }

@@ -87,7 +87,7 @@ public class JavaScript extends PageObject {
         // If the element has been found
         if (elementFound != null) {
             JavascriptExecutor javaExecutor = (JavascriptExecutor) getDriver();
-            javaExecutor.executeScript("arguments[0].scrollIntoView();", elementFound);
+            javaExecutor.executeScript("arguments[0].scrollIntoView(true);", elementFound);
         }
     }
 
@@ -113,7 +113,7 @@ public class JavaScript extends PageObject {
         // If the element has been found
         if (elementFound != null) {
             JavascriptExecutor javaExecutor = (JavascriptExecutor) getDriver();
-            javaExecutor.executeScript("window.scrollTo(0," + elementFound.getLocation().x + ")");
+            javaExecutor.executeScript("window.scrollTo(0," + (elementFound.getLocation().x-3) + ")");
         }
     }
 

@@ -57,4 +57,8 @@
 		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VrijemePage.xml"/>
 	</bean>
 
+	<bean id="balkansWebsiteUživoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/UživoPage.xml"/>
+	</bean>
+
 </beans>

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<UIElements>
+
+    <Element type="input">
+
+        <selector>
+            <element_locator_type>id</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="combo">
+
+        <selector>
+            <element_locator_type>xpath</element_locator_type>
+            <keyword></keyword>
+            <element_locator_value></element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="click">
+
+        <selector>
+            <keyword>Header_Menu_Uživo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>MainSection_Uživo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//h1[@class='page-header' and text()='UŽIVO']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SubSection1_Recent_Videos</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>quicktabs-tab-watch_live_wide_tabs-0</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SubSection2_Popularna_videa</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>quicktabs-tab-watch_live_wide_tabs-0</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>SubSection3_Programi</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>quicktabs-tab-watch_live_wide_tabs-0</element_locator_value>
+        </selector>
+
+        <!-- Selections for Validation of All Links and Images-->
+
+        <selector>
+            <keyword>Main_Page_Anchors</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Anchors</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//footer[@class='content-bottom']//a</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Main_Page_Images</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Footer_Images</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//footer[@class='content-bottom']//img[not(ancestor-or-self::*[(contains(@class, 'hide'))])]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>ImagePlaceholderForVisibility</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//img[@src='_##_']</element_locator_value>
+        </selector>
+
+        <!-- Live Video Selectors-->
+
+        <selector>
+            <keyword>LiveVideo_Player</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'html5-video-player')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_PlayerVideo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//video[contains(@class,'html5-main-video')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_MiddlePlayButton</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-large-play-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_LowerPlayPauseButton</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-play-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_YoutubeLink</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[contains(@class,'ytp-youtube-button')]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>LiveVideo_FullscreenLink</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//button[contains(@class,'ytp-fullscreen-button')]</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="text">
+
+        <!-- Live Video Selectors-->
+
+        <selector>
+            <keyword>LiveVideo_Iframe</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>media-youtube-sxc8dttgwmu</element_locator_value>
+        </selector>
+
+    </Element>
+
+</UIElements>

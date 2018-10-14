@@ -845,11 +845,6 @@ public abstract class UISteps extends AuatSteps {
         javaScriptWebElement.WaitTillVisible(Element);
     }
 
-    /*@Step
-    public void WaitForElement (String Element)  throws Exception {
-
-    }*/
-
     public String javaScriptExecutor(String strCommand) throws Exception {
         return javaScriptWebElement.javaScriptExecutor(strCommand);
     }

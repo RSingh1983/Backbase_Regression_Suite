@@ -47,12 +47,17 @@ public class HomePage extends PageObject {
             logger.info("Click the Article Link with index: " + articleIndex);
             homePageSteps.click_the_element(field, Integer.toString(articleIndex));
 
-            //Validate Header of the Article
-            logger.info("Validate Header of the Article");
             if(articleType.equalsIgnoreCase("Normal Article")) {
-//                logger.info("Validate Header for Normal Article : " + linkText);
-                logger.info("Page Header: " + homePageSteps.getTextFromTextElement("Normal_Article_Header"));
-                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Normal_Article_Header")));
+
+                logger.info("********************* Normal Article Validation ******************************************************");
+
+                // Validate the Header of the Article
+                logger.info("Page Header - Normal Article: " + homePageSteps.getTextFromClickElement("Normal_Article_Header"));
+                assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Normal_Article_Header")));
+
+                // Validate the Main image is present on the Page
+                logger.info("Validate Main Image of Article is Present");
+                homePageSteps.assert_text_element_visible("Article_MainImage");
 
                 // Validate the Social Media sharing options appear on the Article Page
                 logger.info("Validate Social Media Icons For Normal Article");
@@ -61,10 +66,58 @@ public class HomePage extends PageObject {
                 homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0].replace("'",""));
 
             } else {
-                logger.info("Validate Header for Video Article : " + linkText);
-//                homePageSteps.scrollToClickElement("Video_Article_Header");
-//                assertTrue(linkText.equals(homePageSteps.getTextFromTextElement("Video_Article_Header")));
+                logger.info("********************* Video Article Validation ******************************************************");
 
+                // Validate the Header of the Article
+                logger.info("Page Header - Video Article: " + homePageSteps.getTextFromClickElement("Video_Article_Header"));
+                homePageSteps.scrollToClickElementXCoordinate("Video_Article_Header");
+                assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Video_Article_Header")));
+
+
+                // Switch to the LiveVideo Iframe
+                homePageSteps.scrollTop();
+                homePageSteps.switch_to_iframe("Article_MainVideo_Iframe");
+
+                // Validate Live Video is in Paused Mode
+                logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+
+                //Play the Video by clicking the Middle Play Button
+                homePageSteps.click_the_element("LiveVideo_MiddlePlayButton");
+
+                // Validate Live Video is in Play Mode
+                logger.info("Class of Video is : " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+
+                //Hove the mouse over the Video to display the Pause Button
+                homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+
+                // Pause the Video
+                homePageSteps.click_the_element("LiveVideo_Player");
+
+                // Validate Live Video is in Paused Mode
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+
+                //Hove the mouse over the Video to display the Play Button
+                homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+
+                // Play the Video again
+                homePageSteps.click_the_element("LiveVideo_Player");
+
+                // Validate Live Video is in Play Mode
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
+                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+
+                // Pause the Video
+                homePageSteps.click_the_element("LiveVideo_Player");
+
+                // Switch Back to Main Page
+                homePageSteps.switch_to_window();
+
+                logger.info("********************* Social Media Icons Validation ******************************************************");
                 // Validate the Social Media sharing options appear on the Article Page
                 logger.info("Validate Social Media Icons For Video Article");
                 homePageSteps.assert_click_element_visible("Video_Article_Share_Facebook");
@@ -148,8 +201,66 @@ public class HomePage extends PageObject {
     @Then("^I validate all the images are visible on the Home Page$")
     public void validateImageVisible() throws Exception {
 
-        //To-Do Validate src of all images is accessible
         homePageSteps.assertAllImagesPresent("Main_Page_Images");
+    }
+
+    @Then("^I validate live video is visible and plays on the Home Page$")
+    public void validateLiveVideo() throws Exception {
+
+        homePageSteps.scrollTop();
+
+        // Validate the Header for live video is present
+        homePageSteps.assert_text_element_visible("LiveVideo_HeaderLabel");
+
+        // Validate the Footer link for Programs of the live Video is present
+        homePageSteps.assert_click_element_visible("LiveVideo_FooterLink");
+
+        // Switch to the LiveVideo Iframe
+        homePageSteps.switch_to_iframe("LiveVideo_Iframe");
+
+        // Pause the Video if its already Playing
+        if(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode")){
+            //Hove the mouse over the Video to display the Pause Button
+            homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+
+            // Pause the Video
+            homePageSteps.click_the_element("LiveVideo_Player");
+
+        }
+        // Validate Live Video is in Paused Mode
+        logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+
+        //Play the Video
+        homePageSteps.click_the_element("LiveVideo_Player");
+
+        // Validate Live Video is in Play Mode
+        logger.info("Class of Video is : " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+
+        //Hove the mouse over the Video to display the Pause Button
+        homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+
+        // Pause the Video
+        homePageSteps.click_the_element("LiveVideo_Player");
+
+        // Validate Live Video is in Paused Mode
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+
+        //Hove the mouse over the Video to display the Play Button
+        homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+
+        // Play the Video again
+        homePageSteps.click_the_element("LiveVideo_Player");
+
+        // Validate Live Video is in Play Mode
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
+        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+
+
     }
 
 }
