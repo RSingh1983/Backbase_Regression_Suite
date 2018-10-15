@@ -73,49 +73,70 @@ public class HomePage extends PageObject {
                 homePageSteps.scrollToClickElementXCoordinate("Video_Article_Header");
                 assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Video_Article_Header")));
 
-
-                // Switch to the LiveVideo Iframe
                 homePageSteps.scrollTop();
-                homePageSteps.switch_to_iframe("Article_MainVideo_Iframe");
 
-                // Validate Live Video is in Paused Mode
-                logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+                // Check if Video is embedded as an iFrame
+                if(homePageSteps.is_text_element_present("Article_MainVideo_Iframe","")) {
 
-                //Play the Video by clicking the Middle Play Button
-                homePageSteps.click_the_element("LiveVideo_MiddlePlayButton");
+                    logger.info("*****Video is embedded as an iFrame*****");
+                    // Switch to the LiveVideo Iframe
+                    homePageSteps.switch_to_iframe("Article_MainVideo_Iframe");
+                    homePageSteps.scrollToClickElementXCoordinate("LiveVideo_LowerPlayPauseButton");
 
-                // Validate Live Video is in Play Mode
-                logger.info("Class of Video is : " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+                    // Validate Live Video is in Paused Mode
+                    logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("paused-mode"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Play"));
 
-                //Hove the mouse over the Video to display the Pause Button
-                homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+                    //Play the Video by clicking the Middle Play Button
+                    homePageSteps.click_the_element("LiveVideo_MiddlePlayButton");
 
-                // Pause the Video
-                homePageSteps.click_the_element("LiveVideo_Player");
+                    // Validate Live Video is in Play Mode
+                    logger.info("Class of Video is : " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("playing-mode"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Pause"));
 
-                // Validate Live Video is in Paused Mode
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+                    //Hove the mouse over the Video to display the Pause Button
+                    homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
 
-                //Hove the mouse over the Video to display the Play Button
-                homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
+                    // Pause the Video
+                    homePageSteps.click_the_element("LiveVideo_Player");
 
-                // Play the Video again
-                homePageSteps.click_the_element("LiveVideo_Player");
+                    // Validate Live Video is in Paused Mode
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("paused-mode"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Play"));
 
-                // Validate Live Video is in Play Mode
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
-                assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
+                    //Hove the mouse over the Video to display the Play Button
+                    homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
 
-                // Pause the Video
-                homePageSteps.click_the_element("LiveVideo_Player");
+                    // Play the Video again
+                    homePageSteps.click_the_element("LiveVideo_Player");
 
-                // Switch Back to Main Page
-                homePageSteps.switch_to_window();
+                    // Validate Live Video is in Play Mode
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("playing-mode"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Pause"));
+
+                    // Pause the Video
+                    homePageSteps.click_the_element("LiveVideo_Player");
+
+                    // Switch Back to Main Page
+                    homePageSteps.switch_to_window();
+                } else {
+                    logger.info("*****Video is directly embedded in HTML*****");
+
+                    // Validate Video is in Play Mode
+                    logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("VJS_PlayerVideo", "class"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("VJS_PlayerVideo", "class").contains("vjs-playing"));
+
+                    //Pause the Video
+                    homePageSteps.scrollToClickElement("VJS_PlayerVideo");
+                    homePageSteps.click_the_element("VJS_PlayerVideo");
+
+                    // Validate Video is in Pause Mode
+                    logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("VJS_PlayerVideo", "class"));
+                    assertTrue(homePageSteps.getAttributeValueFromClickElement("VJS_PlayerVideo", "class").contains("vjs-paused"));
+
+                }
 
                 logger.info("********************* Social Media Icons Validation ******************************************************");
                 // Validate the Social Media sharing options appear on the Article Page

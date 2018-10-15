@@ -335,11 +335,15 @@ public class WebElementLocator {
 
     private WebElement locateElementByLocator(Locator locator) throws Exception {
         List<WebElement> elements = locateElementsByLocator(locator);
-        WebElement element = elements.get(0);
-        if(elements.size() > 1) {
-            logger.warn("more than one element has been found : ("+elements.size()+" elements) using keyword: "+locator.getKeyword());
+        if(!(elements.isEmpty())) {
+            WebElement element = elements.get(0);
+            if (elements.size() > 1) {
+                logger.warn("more than one element has been found : (" + elements.size() + " elements) using keyword: " + locator.getKeyword());
+            }
+            return element;
+        } else {
+            return null;
         }
-        return element;
     }
 
     public int getElementCount(final String keyword, String repacement,String delimiter,final String beanFileName, final String beanPath, final WebDriver driver,

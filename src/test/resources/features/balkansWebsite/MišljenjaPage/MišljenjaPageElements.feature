@@ -1,6 +1,7 @@
-Feature: As a Balkans Site User I should be able to see and navigate through Mišljenja Page elements:
+@regression @mišljenjaPage
+Feature: Mišljenja Page Links and UI Elements Validations
 
-  @live
+  @mišljenjaPageUIElements
   Scenario: Mišljenja Page - Validation of UI Elements
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I click the Header_Menu_Mišljenja element for Mišljenja Page

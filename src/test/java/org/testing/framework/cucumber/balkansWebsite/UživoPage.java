@@ -23,6 +23,8 @@ public class UživoPage extends PageObject {
     @Then("^I validate live video is visible and plays on the Uživo Page$")
     public void validateLiveVideo() throws Exception {
 
+//        uživoPageSteps.scrollTop();
+
         // Switch to the LiveVideo Iframe
         uživoPageSteps.switch_to_iframe("LiveVideo_Iframe");
 

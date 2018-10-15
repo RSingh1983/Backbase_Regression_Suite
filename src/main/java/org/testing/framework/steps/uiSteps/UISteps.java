@@ -565,6 +565,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public boolean is_text_element_present(String field, String fieldReplacement) throws Exception {
+        return generalElementValidations.checkIfElementPresent(field, fieldReplacement, getBeanFilePath(), webElementsModel.getTextSelector());
+    }
+
+    @Step
     public void assert_attribute_text_present_at_TextElement(String value, String field, String replaceString, String attribute) throws Exception {
         textWebElement.isAttributeTextPresentAtLocation(value, field, replaceString, attribute, getBeanFilePath(), webElementsModel.getTextSelector());
     }

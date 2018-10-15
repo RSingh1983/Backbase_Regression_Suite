@@ -1,6 +1,7 @@
-Feature: As a Balkans Site User I should be able to see and navigate through Video Page Elements:
+@regression @videoPage
+Feature: Video Page Links and UI Elements Validations
 
-  @live @video
+  @videoPageUIElements
   Scenario: Video Page - Validation of UI Elements
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I click the Header_Menu_Video element for Video Page

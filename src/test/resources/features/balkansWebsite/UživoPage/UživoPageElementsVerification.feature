@@ -1,6 +1,7 @@
-Feature: As a Balkans Site User I should be able to see and navigate through Uživo Page Elements:
+@regression @uživoPage
+Feature: Uživo Page Links and UI Elements Validations
 
-  @live @UživoPage
+  @uživoPageUIElements
   Scenario: Uživo Page - Validation of UI Elements
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I click the Header_Menu_Uživo element for Uživo Page

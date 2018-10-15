@@ -24,18 +24,10 @@ public class GeneralElementValidations extends PageObject {
 
     public boolean checkIfElementPresent(final String field, String fieldReplacement, final String beanFileName, final String beanPath) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
-        String[] fieldList = field.split(
-                LoadProjectProperties.getStringProperty(
-                        LoadProjectProperties.REPLACE_TEXT_DELIMITER));
         boolean allFieldsPresent = false;
-        for (String singleField : fieldList) {
-            WebElement element = elementLocator.locateElement(singleField, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
-            if (element == null) {
-                allFieldsPresent = false;
-                break;
-            } else {
-                allFieldsPresent = true;
-            }
+        WebElement element = elementLocator.locateElement(field, fieldReplacement, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), false);
+        if (element != null) {
+            allFieldsPresent = true;
         }
         return allFieldsPresent;
     }

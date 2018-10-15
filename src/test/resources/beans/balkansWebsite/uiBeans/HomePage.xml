@@ -567,6 +567,13 @@
             <element_locator_value>//button[contains(@class,'ytp-fullscreen-button')]</element_locator_value>
         </selector>
 
+        <!-- Selectors for Articles vjs Video-->
+        <selector>
+            <keyword>VJS_PlayerVideo</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@aria-label='video player']</element_locator_value>
+        </selector>
+
     </Element>
 
     <Element type="text">

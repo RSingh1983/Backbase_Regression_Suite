@@ -1,9 +1,7 @@
-Feature: As a Balkans Site User I should be able to Navigate through following details on the Home Page:
-  1. All the Menu Items.
-  2. All the articles and blogs.
-  3. All the footer elements.
+@regression @homePage
+Feature: Home Page Menus, Links and UI Elements Validation
 
-  @live @homePage
+  @homePageUIElements
   Scenario: Home Page - Validation of UI Elements
     Given I browse webSite using BALKANS_URL url of Home Page
     Then I should see the below mentioned Header Menu items on the Home Page
