@@ -114,8 +114,11 @@ public class CommonPage extends PageObject {
         for (Map<String, String> dataMap : webElements.asMaps(String.class, String.class)) {
             for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                 logger.info("Validate Element " + entry.getKey() + " \"" + entry.getValue() + "\" is present on the Page");
-                getUISteps(page).scrollToClickElementXCoordinate(entry.getKey() + "_" + entry.getValue());
-//                getUISteps(page).scrollToClickElement(entry.getKey() + "_" + entry.getValue());
+                if(field.toLowerCase().contains("sticky")){
+                    getUISteps(page).scrollToClickElement(entry.getKey() + "_" + entry.getValue());
+                } else {
+                    getUISteps(page).scrollToClickElementXCoordinate(entry.getKey() + "_" + entry.getValue());
+                }
                 getUISteps(page).assert_click_element_visible(entry.getKey() + "_" + entry.getValue());
             }
         }
