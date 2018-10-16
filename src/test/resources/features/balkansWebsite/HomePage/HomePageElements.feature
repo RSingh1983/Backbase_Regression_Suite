@@ -28,4 +28,4 @@ Feature: Home Page Menus, Links and UI Elements Validation
     Then I should see the below mentioned Footer Section-3 items on the Home Page
       | Footer_Section3 | Footer_Section3_SubMenu1      | Footer_Section3_SubMenu2      | Footer_Section3_SubMenu3                                | Footer_Section3_SubMenu4 |
       | Naša_mreža      | Al_Jazeerin_Centar_za_studije | Al_Jazeerin_Medijski_institut | Al_Jazeerin_Centar_za_ljudska_prava_i_građanske_slobode | Al_Jazeera_Forum         |
-#    Then I validate all links and images on the Home Page
+    Then I validate all links and images on the Home Page
