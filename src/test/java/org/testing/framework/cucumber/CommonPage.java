@@ -115,7 +115,9 @@ public class CommonPage extends PageObject {
             for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                 logger.info("Validate Element " + entry.getKey() + " \"" + entry.getValue() + "\" is present on the Page");
                 if(field.toLowerCase().contains("sticky")){
-                    getUISteps(page).scrollToClickElement(entry.getKey() + "_" + entry.getValue());
+                    logger.info("Field is: " + field);
+                    logger.info("Key is: " + entry.getKey() + "_" + entry.getValue());
+                    getUISteps(page).scrollDown();
                 } else {
                     getUISteps(page).scrollToClickElementXCoordinate(entry.getKey() + "_" + entry.getValue());
                 }
