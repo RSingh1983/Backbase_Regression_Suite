@@ -73,7 +73,6 @@ public class HomePage extends PageObject {
                 homePageSteps.scrollToClickElementXCoordinate("Video_Article_Header");
                 assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Video_Article_Header")));
 
-                homePageSteps.scrollTop();
 
                 // Check if Video is embedded as an iFrame
                 if(homePageSteps.is_text_element_present("Article_MainVideo_Iframe","")) {

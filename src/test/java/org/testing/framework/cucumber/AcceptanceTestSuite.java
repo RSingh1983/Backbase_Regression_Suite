@@ -18,7 +18,7 @@ import java.util.Properties;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-html-report"},
-        tags = {"@live"},
+        tags = {"@regression"},
         features = "src/test/resources/features"
 )
 public class AcceptanceTestSuite {

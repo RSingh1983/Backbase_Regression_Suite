@@ -117,6 +117,19 @@ public class JavaScript extends PageObject {
         }
     }
 
+    //This will scroll automatically to specified web element
+    public void scrollToElementXCoordinate(final String field, final String replaceString, final String beanFileName, final String beanPath) throws Exception {
+        // Locate the passed element
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        WebElement elementFound = elementLocator.locateElement(field, replaceString, beanFileName, beanPath, getDriver(), true);
+
+        // If the element has been found
+        if (elementFound != null) {
+            JavascriptExecutor javaExecutor = (JavascriptExecutor) getDriver();
+            javaExecutor.executeScript("window.scrollTo(0," + (elementFound.getLocation().x-3) + ")");
+        }
+    }
+
     /**
      * Retrieve the value associated to a css key
      * For example:

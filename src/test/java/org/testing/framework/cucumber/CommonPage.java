@@ -164,7 +164,8 @@ public class CommonPage extends PageObject {
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
                         then().assertThat().statusCode(200);
-                getUISteps(page).assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
+                getUISteps(page).scrollToClickElementXCoordinate("Main_Page_Image_PlaceHolder", imageSrc.getKey());
+                getUISteps(page).assertImagePresent("Main_Page_Image_PlaceHolder", imageSrc.getKey());
             } else {
                 fail("src tag of the image is blank");
             }
@@ -178,7 +179,8 @@ public class CommonPage extends PageObject {
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
                         then().assertThat().statusCode(200);
-                getUISteps(page).assertImagePresent("ImagePlaceholderForVisibility", imageSrc.getKey());
+                getUISteps(page).scrollToClickElementXCoordinate("Footer_Image_PlaceHolder", imageSrc.getKey());
+                getUISteps(page).assertImagePresent("Footer_Image_PlaceHolder", imageSrc.getKey());
             } else {
                 fail("src tag of the image is blank");
             }

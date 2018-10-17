@@ -785,6 +785,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public void scrollToClickElementXCoordinate(String field, String replaceString) throws Exception{
+        javaScriptWebElement.scrollToElementXCoordinate(field, replaceString, getBeanFilePath(),webElementsModel.getClickSelector());
+    }
+
+    @Step
     public void assertButtonColor(String field, String expectedColor) throws Exception {
         String cssColor = javaScriptWebElement.retrieveCssValue(field, "background", getBeanFilePath(), webElementsModel.getClickSelector());
         boolean in = cssColor.contains(expectedColor);
