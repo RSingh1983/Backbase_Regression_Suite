@@ -94,10 +94,12 @@ public class HomePage extends PageObject {
                     //Play the Video by clicking the Middle Play Button
                     homePageSteps.click_the_element("LiveVideo_MiddlePlayButton");
 
+                    //Hove the mouse over the Video to display the Pause Button
+                    homePageSteps.hoverMouseOverLink("LiveVideo_Player");
+
                     // Validate Live Video is in Play Mode
                     logger.info("Class of Video is : " + homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class"));
                     assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("playing-mode"));
-                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Pause"));
 
                     //Hove the mouse over the Video to display the Pause Button
                     homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
@@ -107,20 +109,6 @@ public class HomePage extends PageObject {
 
                     // Validate Live Video is in Paused Mode
                     assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("paused-mode"));
-                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Play"));
-
-                    //Hove the mouse over the Video to display the Play Button
-                    homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
-
-                    // Play the Video again
-                    homePageSteps.click_the_element("LiveVideo_Player");
-
-                    // Validate Live Video is in Play Mode
-                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player", "class").contains("playing-mode"));
-                    assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton", "aria-label").contains("Pause"));
-
-                    // Pause the Video
-                    homePageSteps.click_the_element("LiveVideo_Player");
 
                     // Switch Back to Main Page
                     homePageSteps.switch_to_window();
