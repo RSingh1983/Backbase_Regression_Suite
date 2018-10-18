@@ -23,7 +23,8 @@ public class UživoPage extends PageObject {
     @Then("^I validate live video is visible and plays on the Uživo Page$")
     public void validateLiveVideo() throws Exception {
 
-//        uživoPageSteps.scrollTop();
+        uživoPageSteps.scrollTop();
+        uživoPageSteps.scrollToClickElementXCoordinate("SubSection1_Recent_Videos");
 
         // Switch to the LiveVideo Iframe
         uživoPageSteps.switch_to_iframe("LiveVideo_Iframe");
@@ -33,6 +34,9 @@ public class UživoPage extends PageObject {
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
 
+        //Hover the mouse over the Video to display the Pause Button
+        uživoPageSteps.hoverMouseOverLink("LiveVideo_MiddlePlayButton");
+
         //Play the Video by clicking the Middle Play Button
         uživoPageSteps.click_the_element("LiveVideo_MiddlePlayButton");
 
@@ -41,7 +45,7 @@ public class UživoPage extends PageObject {
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
 
-        //Hove the mouse over the Video to display the Pause Button
+        //Hover the mouse over the Video to display the Pause Button
         uživoPageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
 
         // Pause the Video
