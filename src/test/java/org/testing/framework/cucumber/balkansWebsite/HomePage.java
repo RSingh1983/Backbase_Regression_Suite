@@ -8,12 +8,16 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 import org.eclipse.jetty.client.ValidatingConnectionPool;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testing.framework.cucumber.CommonPage;
 import org.testing.framework.steps.balkansWebsite.uisteps.HomePageSteps;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
 
@@ -221,7 +225,18 @@ public class HomePage extends PageObject {
     @Then("^I validate all the images are visible on the Home Page$")
     public void validateImageVisible() throws Exception {
 
-        homePageSteps.assertAllImagesPresent("Main_Page_Images");
+        try {
+            homePageSteps.assertAllImagesPresent("Main_Page_Images");
+        } catch(Exception e){
+            LogEntries logEntries = getDriver().manage().logs().get(LogType.BROWSER);
+            for (LogEntry entry : logEntries) {
+                logger.info("***********************************************Logs from Browser ***************************************************************************************");
+                logger.info("Logs from Browser: " + new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+                logger.info("*********************************************************************************************************************************************************");
+            }
+            logger.info("*********************************************************************************************************************************************************");
+            throw e;
+        }
     }
 
     @Then("^I validate live video is visible and plays on the Home Page$")
