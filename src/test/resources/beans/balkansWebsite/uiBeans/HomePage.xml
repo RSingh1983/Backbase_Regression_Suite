@@ -495,6 +495,7 @@
             <keyword>Main_Page_Image_PlaceHolder</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//section[@id='block-system-main']//img[@src='_##_']</element_locator_value>
+            <selector_debug>//section[@id='block-system-main']//img</selector_debug>
         </selector>
 
         <selector>

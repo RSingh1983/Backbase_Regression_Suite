@@ -225,18 +225,7 @@ public class HomePage extends PageObject {
     @Then("^I validate all the images are visible on the Home Page$")
     public void validateImageVisible() throws Exception {
 
-        try {
-            homePageSteps.assertAllImagesPresent("Main_Page_Images");
-        } catch(Exception e){
-            LogEntries logEntries = getDriver().manage().logs().get(LogType.BROWSER);
-            for (LogEntry entry : logEntries) {
-                logger.info("***********************************************Logs from Browser ***************************************************************************************");
-                logger.info("Logs from Browser: " + new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
-                logger.info("*********************************************************************************************************************************************************");
-            }
-            logger.info("*********************************************************************************************************************************************************");
-            throw e;
-        }
+        homePageSteps.assertAllImagesPresent("Main_Page_Images");
     }
 
     @Then("^I validate live video is visible and plays on the Home Page$")

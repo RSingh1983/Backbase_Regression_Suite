@@ -3,6 +3,9 @@ package org.testing.framework.backend.webElements.locator;
 import org.apache.commons.collections.CollectionUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -24,7 +27,10 @@ import javax.xml.xpath.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class WebElementLocator {
 
@@ -212,6 +218,14 @@ public class WebElementLocator {
                     return elementsFound;
                 }
             } catch (Exception e) {
+
+                LogEntries logEntries = getDriver().manage().logs().get(LogType.BROWSER);
+                logger.info("***********************************************Logs from Browser ***************************************************************************************");
+                for (LogEntry entry : logEntries) {
+                    logger.info(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+                }
+                logger.info("*********************************************************************************************************************************************************");
+
                 // for debugging purpose, list element that matches the debug selector
                 if(selector.getDebugSelector() != null) {
                     logger.error(e.getMessage());
@@ -223,6 +237,7 @@ public class WebElementLocator {
                         logger.error("# element found: " + element.getAttribute("id"));
                     }
                     logger.error("######## DEBUG SELECTOR MODE - END ###########");
+                    throw e;
                 } else {
                     if(locator.isRaiseErrorIfUnavailable()) {
                         logger.warn(e.getMessage(), e);
