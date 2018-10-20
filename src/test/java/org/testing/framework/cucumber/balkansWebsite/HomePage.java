@@ -260,17 +260,7 @@ public class HomePage extends PageObject {
         // Validate Live Video is in Paused Mode
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
-
-        //Hove the mouse over the Video to display the Play Button
-        homePageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
-
-        // Play the Video again
-        homePageSteps.click_the_element("LiveVideo_Player");
-
-        // Validate Live Video is in Play Mode
-        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
-        assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
-
+        
 
     }
 
