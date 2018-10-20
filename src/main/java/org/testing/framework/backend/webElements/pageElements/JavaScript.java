@@ -400,7 +400,9 @@ public class JavaScript extends PageObject {
         boolean loaded = false;
         int imageIndex = 0;
         for(WebElement elementFound: elementsFound){
-            logger.info("Validating image " + ++imageIndex+ " with src : " + elementFound.getAttribute("src"));
+
+            logger.info("Validating image " + ++imageIndex+ " with src : " +((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + "src" + "'].value;", elementFound).toString());
+//            logger.info("Validating image " + ++imageIndex+ " with src : " + elementFound.getAttribute("src"));
             Object result = ((JavascriptExecutor) getDriver()).executeScript(
                     "return arguments[0].complete && " +
                             "typeof arguments[0].naturalWidth != \"undefined\" && " +

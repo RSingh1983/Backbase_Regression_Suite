@@ -384,7 +384,8 @@ public class Text extends PageObject {
 //            logger.info("Actual Attribute in Source: " + ((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString());
 //            logger.info("Element Attribute by Selenium: " + element.getAttribute(attribute));
 
-            attributeValues.put(((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString(),element.getAttribute(attribute));
+            if(element.getAttribute(attribute) != null)
+                attributeValues.put(((JavascriptExecutor)getDriver()).executeScript("return arguments[0].attributes['" + attribute + "'].value;", element).toString(),element.getAttribute(attribute));
         }
         return attributeValues;
     }

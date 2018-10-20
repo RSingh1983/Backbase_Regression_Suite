@@ -260,7 +260,7 @@ public class HomePage extends PageObject {
         // Validate Live Video is in Paused Mode
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
-        
+
 
     }
 
