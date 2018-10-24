@@ -53,7 +53,7 @@ public class HomePage extends PageObject {
 
             if(articleType.equalsIgnoreCase("Normal Article")) {
 
-                logger.info("********************* Normal Article Validation ******************************************************");
+                logger.info("***************************************************************** Normal Article Validation ******************************************************");
 
                 // Validate the Header of the Article
                 logger.info("Page Header - Normal Article: " + homePageSteps.getTextFromClickElement("Normal_Article_Header"));
@@ -70,7 +70,7 @@ public class HomePage extends PageObject {
                 homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0].replace("'",""));
 
             } else {
-                logger.info("********************* Video Article Validation ******************************************************");
+                logger.info("***************************************************************** Video Article Validation ******************************************************");
 
                 // Validate the Header of the Article
                 logger.info("Page Header - Video Article: " + homePageSteps.getTextFromClickElement("Video_Article_Header"));

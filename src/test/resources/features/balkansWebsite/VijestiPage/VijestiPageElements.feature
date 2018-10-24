@@ -20,7 +20,7 @@ Feature: Vijesti Page Links and UI Elements Validations
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Vijesti element for the Vijesti Page
     And I click the <SideBarMenu> element for Vijesti Page
-    Then I validate all links and images on the Vijesti Page
+    Then I validate all links and images on the Vijesti Page <SideBarMenu>
     Examples:
       | SideBarMenu                |
       | SiderBar_Menu1_Balkan      |

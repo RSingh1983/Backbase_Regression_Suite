@@ -21,7 +21,7 @@ Feature: Programi Page Links and UI Elements Validations
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Programi element for the Programi Page
     And I click the <SideBarMenu> element for Programi Page
-    Then I validate all links and images on the Programi Page
+    Then I validate all links and images on the Programi Page <SideBarMenu>
     Examples:
       | SideBarMenu                        |
       | SiderBar_Menu1_AL_JAZEERA_OBJEKTIV |
