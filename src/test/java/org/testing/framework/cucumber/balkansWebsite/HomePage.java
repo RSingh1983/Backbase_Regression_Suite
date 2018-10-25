@@ -59,16 +59,17 @@ public class HomePage extends PageObject {
                 logger.info("Page Header - Normal Article: " + homePageSteps.getTextFromClickElement("Normal_Article_Header"));
                 assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Normal_Article_Header")));
 
-                // Validate the Main image is present on the Page
-                logger.info("Validate Main Image of Article is Present");
-                homePageSteps.assert_text_element_visible("Article_MainImage");
+                if(!linkText.toLowerCase().contains("video")) {
+                    // Validate the Main image is present on the Page
+                    logger.info("Validate Main Image of Article is Present");
+                    homePageSteps.assert_text_element_visible("Article_MainImage");
 
-                // Validate the Social Media sharing options appear on the Article Page
-                logger.info("Validate Social Media Icons For Normal Article");
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Facebook");
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter",linkText.split(" ")[0].replace("'",""));
-                homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail",linkText.split(" ")[0].replace("'",""));
-
+                    // Validate the Social Media sharing options appear on the Article Page
+                    logger.info("Validate Social Media Icons For Normal Article");
+                    homePageSteps.assert_click_element_visible("Normal_Article_Share_Facebook");
+                    homePageSteps.assert_click_element_visible("Normal_Article_Share_Twitter", linkText.split(" ")[0].replace("'", ""));
+                    homePageSteps.assert_click_element_visible("Normal_Article_Share_Mail", linkText.split(" ")[0].replace("'", ""));
+                }
             } else {
                 logger.info("***************************************************************** Video Article Validation ******************************************************");
 
