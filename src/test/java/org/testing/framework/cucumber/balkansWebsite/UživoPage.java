@@ -51,7 +51,7 @@ public class UživoPage extends PageObject {
         uživoPageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
 
         // Pause the Video
-        uživoPageSteps.click_the_element("LiveVideo_Player");
+        uživoPageSteps.click_the_element("LiveVideo_PlayerVideo");
 
         //Hove the mouse over the Video to display the Play Button
         uživoPageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
