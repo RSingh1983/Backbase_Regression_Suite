@@ -54,22 +54,23 @@ public class Text extends PageObject {
      * @throws Exception If the element is not present
      */
     public String getTextFromElement(final String field, final String beanFileName, final String beanPath) throws Exception {
-        String text = "";
-        // Locate the passed element
-        WebElementLocator elementLocator = WebElementLocator.getInstance();
-        WebElement elementFound = elementLocator.locateElement(field, beanFileName, beanPath, getDriver(), true);
-
-        // If the element has been found
-        if (elementFound != null) {
-            text = elementFound.getText();
-            if (text.isEmpty() && elementFound.getAttribute("value") != null) {
-                text = elementFound.getAttribute("value");
-            }
-            if (text.isEmpty()) {
-                logger.warn("No text found in element" + field);
-            }
-        }
-        return text;
+//        String text = "";
+//        // Locate the passed element
+//        WebElementLocator elementLocator = WebElementLocator.getInstance();
+//        WebElement elementFound = elementLocator.locateElement(field, beanFileName, beanPath, getDriver(), true);
+//
+//        // If the element has been found
+//        if (elementFound != null) {
+//            text = elementFound.getText();
+//            if (text.isEmpty() && elementFound.getAttribute("value") != null) {
+//                text = elementFound.getAttribute("value");
+//            }
+//            if (text.isEmpty()) {
+//                logger.warn("No text found in element" + field);
+//            }
+//        }
+//        return text;
+        return getTextFromElement(field,"",beanFileName,beanPath);
     }
 
     public String getTextFromElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
@@ -126,9 +127,9 @@ public class Text extends PageObject {
         return elementsFound;
     }
 
-    public List<String> listOfElements(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
+    public List<String> listOfElements(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath, final boolean raiseErrorifUnavailable) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
-        List<WebElement> element = elementLocator.locateMultipleElements(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), false);
+        List<WebElement> element = elementLocator.locateMultipleElements(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), raiseErrorifUnavailable);
         List<String> elementsFound = new ArrayList<>();
         if (!element.isEmpty())
             for (WebElement webElement : element) {

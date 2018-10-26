@@ -883,7 +883,7 @@ public abstract class UISteps extends AuatSteps {
 
     @Step
     public List<String> getTextFromMultipleElements(String field, String fieldReplacementValue) throws Exception {
-        return textWebElement.listOfElements(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector());
+        return textWebElement.listOfElements(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector(), true);
     }
 
     @Step

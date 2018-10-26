@@ -17,6 +17,7 @@ import org.testing.framework.cucumber.CommonPage;
 import org.testing.framework.steps.balkansWebsite.uisteps.HomePageSteps;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
@@ -60,9 +61,12 @@ public class HomePage extends PageObject {
                 assertTrue(linkText.equals(homePageSteps.getTextFromClickElement("Normal_Article_Header")));
 
                 if(!linkText.toLowerCase().contains("video")) {
-                    // Validate the Main image is present on the Page
-                    logger.info("Validate Main Image of Article is Present");
-                    homePageSteps.assert_text_element_visible("Article_MainImage");
+
+                    if(homePageSteps.is_text_element_present("Article_MainImage","")) {
+                        // Validate the Main image is present on the Page
+                        logger.info("Validate Main Image of Article is Present");
+                        homePageSteps.assert_text_element_visible("Article_MainImage");
+                    }
 
                     // Validate the Social Media sharing options appear on the Article Page
                     logger.info("Validate Social Media Icons For Normal Article");
@@ -261,6 +265,37 @@ public class HomePage extends PageObject {
         // Validate Live Video is in Paused Mode
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
         assertTrue(homePageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
+
+
+    }
+
+    @Then("^I search articles from section (.*) and validate search results on the Home Page$")
+    public void searchAndValidateArticlesFromSections(String sectionName)  throws Exception {
+
+        for(int articleIndex = 1; articleIndex<=8; articleIndex++ ) {
+            homePageSteps.scrollTop();
+
+            //Get Header Text of the link
+            String linkText = homePageSteps.getTextFromClickElement(sectionName, Integer.toString(articleIndex));
+            logger.info("Text of Link on index " + articleIndex + " is: " + linkText);
+
+            homePageSteps.click_the_element("SearchButton");
+            homePageSteps.type_the_value_and_enter(linkText.split(":").length >=2 ? linkText.split(":")[1]: linkText.split(":")[0],"Article_Search_TextBox");
+
+            ArrayList<String> searchResults = new ArrayList<>();
+            for (String searchResult: homePageSteps.getTextFromMultipleElements("Article_SearchResults", "")) {
+                logger.info("Search Result: "+ searchResult);
+                searchResults.add(searchResult);
+            }
+
+            //Validate the searched Article appeared in the results
+            assertTrue(searchResults.contains(linkText));
+            logger.info("Navigate back to Home Page");
+            homePageSteps.click_the_element("Home_Page_Logo");
+
+            logger.info("Scroll to Element: " + sectionName + " with index: " + articleIndex);
+            homePageSteps.scrollToClickElement(sectionName, Integer.toString(articleIndex));
+        }
 
 
     }

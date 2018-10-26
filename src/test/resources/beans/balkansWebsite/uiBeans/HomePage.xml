@@ -4,10 +4,11 @@
 
     <Element type="input">
 
+        <!-- Search Text Box Selectors-->
         <selector>
-            <element_locator_type>id</element_locator_type>
-            <keyword></keyword>
-            <element_locator_value></element_locator_value>
+            <keyword>Article_Search_TextBox</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[@class='bottom desktop search-region open']//section[@id='block-aj-balkans-search-form']//input[@id='edit-keywords']</element_locator_value>
         </selector>
 
     </Element>
@@ -586,6 +587,13 @@
             <element_locator_value>//div[@aria-label='video player']</element_locator_value>
         </selector>
 
+        <!-- Selectors for Search Icon-->
+        <selector>
+            <keyword>SearchButton</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'desktop search-icon')]</element_locator_value>
+        </selector>
+
     </Element>
 
     <Element type="text">
@@ -628,6 +636,13 @@
             <keyword>LiveVideo_HeaderLabel</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//h2[contains(.,'Uživo')]</element_locator_value>
+        </selector>
+
+        <!-- Search Result Selectors-->
+        <selector>
+            <keyword>Article_SearchResults</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'view-display-id-search_pane')]//h2/a</element_locator_value>
         </selector>
 
     </Element>

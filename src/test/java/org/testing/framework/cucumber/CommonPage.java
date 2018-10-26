@@ -100,7 +100,7 @@ public class CommonPage extends PageObject {
     @Given("^I browse webSite using (.*) url of (.*)$")
     public void openURL(String url, String page) throws Exception {
         getUISteps(page).open_site(url);
-        getUISteps(page).page_refresh();
+//        getUISteps(page).page_refresh();
     }
 
     @When("^I click the (.*) element for (.*)$")
