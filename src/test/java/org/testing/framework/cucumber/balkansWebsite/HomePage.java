@@ -118,7 +118,12 @@ public class HomePage extends PageObject {
                     // Switch Back to Main Page
                     homePageSteps.switch_to_window();
                 } else {
+
                     logger.info("*****Video is directly embedded in HTML*****");
+
+                    // Play the video again, if it has completed
+                    if(homePageSteps.getAttributeValueFromClickElement("VJS_Player_ProgressBar","style").contains("100%"))
+                        homePageSteps.click_the_element("VJS_PlayerVideo");
 
                     // Validate Video is in Play Mode
                     logger.info("Class of Player is: " + homePageSteps.getAttributeValueFromClickElement("VJS_PlayerVideo", "class"));

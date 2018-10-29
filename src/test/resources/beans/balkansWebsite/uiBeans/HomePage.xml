@@ -587,6 +587,12 @@
             <element_locator_value>//div[@aria-label='video player']</element_locator_value>
         </selector>
 
+        <selector>
+            <keyword>VJS_Player_ProgressBar</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//div[contains(@class,'vjs-play-progress')]</element_locator_value>
+        </selector>
+
         <!-- Selectors for Search Icon-->
         <selector>
             <keyword>SearchButton</keyword>
