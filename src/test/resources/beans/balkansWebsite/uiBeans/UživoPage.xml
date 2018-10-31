@@ -27,7 +27,7 @@
         <selector>
             <keyword>Header_Menu_Uživo</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo' and @class="live-cast"]</element_locator_value>
         </selector>
 
         <selector>

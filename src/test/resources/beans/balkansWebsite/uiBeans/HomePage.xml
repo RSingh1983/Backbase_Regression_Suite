@@ -139,7 +139,7 @@
         <selector>
             <keyword>Sticky_Header_Menu9_Uživo</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo']</element_locator_value>
         </selector>
 
         <!-- Selectors for Header Social Media Links -->
