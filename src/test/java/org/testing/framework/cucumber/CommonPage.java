@@ -159,7 +159,7 @@ public class CommonPage extends PageObject {
         // Validate all the images on the Main Page Content
         for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Images", "src").entrySet()) {
             logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
-            if (imageSrc.getKey() != "") {
+            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
                 RestAssured.given().
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
@@ -167,14 +167,14 @@ public class CommonPage extends PageObject {
                 getUISteps(page).scrollToClickElementXCoordinate("Main_Page_Image_PlaceHolder", imageSrc.getKey());
                 getUISteps(page).assertImagePresent("Main_Page_Image_PlaceHolder", imageSrc.getKey());
             } else {
-                fail("src tag of the image is blank");
+                fail("src tag of the image is blank or contains full static URL");
             }
         }
 
         // Validate all the images on the Footer Content
         for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Images", "src").entrySet()) {
             logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
-            if (imageSrc.getKey() != "") {
+            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
                 RestAssured.given().
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
@@ -182,7 +182,7 @@ public class CommonPage extends PageObject {
                 getUISteps(page).scrollToClickElementXCoordinate("Footer_Image_PlaceHolder", imageSrc.getKey());
                 getUISteps(page).assertImagePresent("Footer_Image_PlaceHolder", imageSrc.getKey());
             } else {
-                fail("src tag of the image is blank");
+                fail("src tag of the image is blank or contains full static URL");
             }
         }
     }
