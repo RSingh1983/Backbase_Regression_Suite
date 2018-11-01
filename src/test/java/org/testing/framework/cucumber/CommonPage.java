@@ -159,7 +159,8 @@ public class CommonPage extends PageObject {
         // Validate all the images on the Main Page Content
         for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Main_Page_Images", "src").entrySet()) {
             logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
-            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
+//            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
+            if (imageSrc.getKey() != ""){
                 RestAssured.given().
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
@@ -174,7 +175,8 @@ public class CommonPage extends PageObject {
         // Validate all the images on the Footer Content
         for (Map.Entry<String,String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement("Footer_Images", "src").entrySet()) {
             logger.info("Validating Image " + ++imageIndex + " of " + page + " : " + imageSrc.getKey());
-            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
+//            if (imageSrc.getKey() != "" && !(imageSrc.getKey().startsWith("http"))) {
+            if (imageSrc.getKey() != ""){
                 RestAssured.given().
                         urlEncodingEnabled(false).
                         when().get(imageSrc.getValue()).
