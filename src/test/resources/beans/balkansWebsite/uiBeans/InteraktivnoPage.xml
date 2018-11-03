@@ -27,7 +27,7 @@
         <selector>
             <keyword>Header_Menu_Interaktivno</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno' and @href='/interaktivno']</element_locator_value>
         </selector>
 
         <selector>

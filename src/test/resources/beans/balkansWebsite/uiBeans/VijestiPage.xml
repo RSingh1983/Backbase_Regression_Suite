@@ -27,7 +27,7 @@
         <selector>
             <keyword>Header_Menu_Vijesti</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti' and @href='/']</element_locator_value>
         </selector>
 
         <!-- Selectors for SideBar Menu Elements-->

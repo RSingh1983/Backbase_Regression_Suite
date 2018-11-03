@@ -36,110 +36,110 @@
         <selector>
             <keyword>Header_Menu1_Vijesti</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti' and @href='/']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu2_Teme</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme' and @href='/kategorije/teme']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu3_Mišljenja</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja' and @href='/mi%C5%A1ljenja']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu4_Programi</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi' and @href='/programi']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu5_Video</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video' and @href='/video']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu6_Blog</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog' and @href='/blog']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu7_Interaktivno</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno' and @href='/interaktivno']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu8_Vrijeme</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme' and @href='/vrijeme']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Header_Menu9_Uživo</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+            <element_locator_value>//div[@class='desktop-header visible-over-tablet']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo' and @href='/uzivo']</element_locator_value>
         </selector>
 
         <!-- Selectors for Sticky Header Menu Elements-->
         <selector>
             <keyword>Sticky_Header_Menu1_Vijesti</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vijesti' and @href='/']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu2_Teme</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Teme' and @href='/kategorije/teme']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu3_Mišljenja</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Mišljenja' and @href='/mi%C5%A1ljenja']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu4_Programi</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Programi' and @href='/programi']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu5_Video</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Video' and @href='/video']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu6_Blog</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Blog' and @href='/blog']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu7_Interaktivno</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Interaktivno' and @href='/interaktivno']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu8_Vrijeme</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Vrijeme' and @href='/vrijeme']</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Sticky_Header_Menu9_Uživo</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo']</element_locator_value>
+            <element_locator_value>//div[@class='animated sticky-header show-sticky fadeInDown']//section[@id='block-menu-block-aj-balkans-main-menu']//a[text()='Uživo' and @href='/uzivo']</element_locator_value>
         </selector>
 
         <!-- Selectors for Header Social Media Links -->
