@@ -15,7 +15,7 @@ Feature: Vijesti Page Links and UI Elements Validations
     And I hover mouse over SiderBar_Menu5_EKONOMIJA element of Header_Menu_Vijesti, I should see VisitPage_Link5_EKONOMIJA link on the Vijesti Page
     And I hover mouse over SiderBar_Menu6_SPORT element of Header_Menu_Vijesti, I should see VisitPage_Link6_SPORT link on the Vijesti Page
 
-  @vijestiPageUIElements
+  @vijestiAllSubPagesUIElements
   Scenario Outline: Vijesti All Pages - Validation of UI Elements
     Given  I browse webSite using BALKANS_URL url of Home Page
     When I hover mouse over Header_Menu_Vijesti element for the Vijesti Page
