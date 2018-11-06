@@ -420,13 +420,13 @@
         <selector>
             <keyword>Normal_Article_Share_Twitter</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@onclick,'http://twitter.com/share?text=_##_') and contains(@onclick,'url=http://ajb.me/')]</element_locator_value>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@onclick,'http://twitter.com/share?text=') and contains(@onclick,'url=http://ajb.me/')  and contains(@onclick,'_##_')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Normal_Article_Share_Mail</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@href,'mailto:?subject=_##_') and contains(@href,'body=http://ajb.me/')]</element_locator_value>
+            <element_locator_value>//div[contains(@class,'desktop-share-icons')]//a[contains(@href,'mailto:?subject=') and contains(@href,'body=http://ajb.me/') and contains(@href,'_##_')]</element_locator_value>
         </selector>
 
         <selector>
@@ -438,13 +438,13 @@
         <selector>
             <keyword>Video_Article_Share_Twitter</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//a[contains(@onclick,'http://twitter.com/share?text=_##_') and contains(@onclick,'url=http://ajb.me/')]</element_locator_value>
+            <element_locator_value>//a[contains(@onclick,'http://twitter.com/share?text=') and contains(@onclick,'url=http://ajb.me/') and contains(@onclick,'_##_')]</element_locator_value>
         </selector>
 
         <selector>
             <keyword>Video_Article_Share_Mail</keyword>
             <element_locator_type>xpath</element_locator_type>
-            <element_locator_value>//a[contains(@href,'mailto:?subject=_##_') and contains(@href,'body=http://ajb.me/')]</element_locator_value>
+            <element_locator_value>//a[contains(@href,'mailto:?subject=') and contains(@href,'body=http://ajb.me/') and contains(@href,'_##_')]</element_locator_value>
         </selector>
 
         <!-- Selectors for all Anchors, links and Images elements -->
