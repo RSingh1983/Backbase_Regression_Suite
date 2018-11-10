@@ -1,5 +1,5 @@
 @mišljenjaPage
-Feature: Mišljenja Links Pages Images Validations
+Feature: Mišljenja Page Links Pages Images Validations
 
   @mišljenjaPageLinksImages @nightly
   Scenario: Mišljenja Page - Validation of Images on links Pages of the Mišljenja Page

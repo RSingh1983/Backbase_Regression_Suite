@@ -1,5 +1,5 @@
 @programiPage
-Feature: Home Page Links Pages Images Validations
+Feature: Programi Page Links Pages Images Validations
 
   @programiPageLinksImages @nightly
   Scenario: Programi Page - Validation of Images on links Pages of the Programi Page
