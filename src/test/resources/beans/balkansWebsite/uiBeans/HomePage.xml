@@ -600,6 +600,19 @@
             <element_locator_value>//div[contains(@class,'desktop search-icon')]</element_locator_value>
         </selector>
 
+        <!-- Selectors for getting all the visible hyperlinks on the page-->
+        <selector>
+            <keyword>All_Hyperlinks</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a[not(ancestor-or-self::*[(contains(@class, 'hide'))]) and not(ancestor-or-self::*[(contains(@class, 'field-label-hidden'))])]</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Link_PlaceHolder</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a[@href='_##_']</element_locator_value>
+        </selector>
+
     </Element>
 
     <Element type="text">
@@ -649,6 +662,13 @@
             <keyword>Article_SearchResults</keyword>
             <element_locator_type>xpath</element_locator_type>
             <element_locator_value>//div[contains(@class,'view-display-id-search_pane')]//h2/a</element_locator_value>
+        </selector>
+
+        <!-- Selectors for getting all the visible hyperlinks on the page-->
+        <selector>
+            <keyword>All_Hyperlinks</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a[not(ancestor-or-self::*[(contains(@class, 'hide'))]) and not(ancestor-or-self::*[(contains(@class, 'field-label-hidden'))])]</element_locator_value>
         </selector>
 
     </Element>

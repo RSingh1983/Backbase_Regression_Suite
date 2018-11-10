@@ -107,10 +107,11 @@
 
     <Element type="text">
 
+        <!-- Selectors for getting all the visible hyperlinks on the page-->
         <selector>
-            <element_locator_type>css</element_locator_type>
-            <keyword></keyword>
-            <element_locator_value></element_locator_value>
+            <keyword>All_Hyperlinks</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a[not(ancestor-or-self::*[(contains(@class, 'hide'))]) and not(ancestor-or-self::*[(contains(@class, 'field-label-hidden'))])]</element_locator_value>
         </selector>
 
     </Element>

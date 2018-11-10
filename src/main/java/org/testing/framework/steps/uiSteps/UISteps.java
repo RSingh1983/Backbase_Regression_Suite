@@ -887,6 +887,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public List<WebElement> getWebElements(String field, String fieldReplacementValue) throws Exception {
+        return textWebElement.getWebElements(field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getTextSelector(), true);
+    }
+
+    @Step
     public int numberOfElementsOnPage(String field, String replacement, String delimiter) throws Exception {
         int numberOfElements = generalElementValidations.numberOfElementsOnPage(field, replacement, delimiter, getBeanFilePath(), webElementsModel.getTextSelector());
         return numberOfElements;

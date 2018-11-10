@@ -48,7 +48,6 @@ public class UživoPage extends PageObject {
         logger.info("Validate that Video is in Play mode");
         logger.info("Class of Video is : " + uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("playing-mode"));
-//        assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Pause"));
 
         //Hover the mouse over the Video to display the Pause Button
         uživoPageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
@@ -57,14 +56,12 @@ public class UživoPage extends PageObject {
         logger.info("Pause the Video");
         uživoPageSteps.click_the_element("LiveVideo_PlayerVideo");
 
-        //Hove the mouse over the Video to display the Play Button
-        uživoPageSteps.hoverMouseOverLink("LiveVideo_PlayerVideo");
-
+        Thread.sleep(5000);
 
         // Validate Live Video is in Paused Mode
         logger.info("Validate that Video is in Paused mode");
+        logger.info("Class of Video is : " + uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class"));
         assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_Player","class").contains("paused-mode"));
-//        assertTrue(uživoPageSteps.getAttributeValueFromClickElement("LiveVideo_LowerPlayPauseButton","aria-label").contains("Play"));
 
 
     }

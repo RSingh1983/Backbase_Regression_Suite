@@ -8,6 +8,8 @@ import io.restassured.RestAssured;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.PageObject;
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testing.framework.steps.balkansWebsite.uisteps.*;
@@ -15,6 +17,7 @@ import org.testing.framework.steps.uiSteps.UISteps;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -100,7 +103,6 @@ public class CommonPage extends PageObject {
     @Given("^I browse webSite using (.*) url of (.*)$")
     public void openURL(String url, String page) throws Exception {
         getUISteps(page).open_site(url);
-//        getUISteps(page).page_refresh();
     }
 
     @When("^I click the (.*) element for (.*)$")
@@ -183,6 +185,38 @@ public class CommonPage extends PageObject {
                         then().assertThat().statusCode(200);
                 getUISteps(page).scrollToClickElementXCoordinate("Footer_Image_PlaceHolder", imageSrc.getKey());
                 getUISteps(page).assertImagePresent("Footer_Image_PlaceHolder", imageSrc.getKey());
+            } else {
+                fail("src tag of the image is blank or contains full static URL");
+            }
+        }
+    }
+
+    @Then("^I validate images on all the links of the (.*)$")
+    public void validateImagesOnPage(String page) throws Exception {
+
+        int anchorIndex = 0;
+        for (Map.Entry<String, String> anchor : getUISteps(page).getAttributeValueFromAllClickElement("All_Hyperlinks", "href").entrySet()) {
+            if (!(anchor.getValue().contains("www.linkedin.com/company")) && !(anchor.getValue().contains("javascript")) && !(anchor.getValue().contains("mailto:?subject"))){
+                logger.info("Open URL " + ++anchorIndex + ": " + anchor.getKey() + " from " + page);
+                getUISteps(page).open_page_from_url(anchor.getValue());
+                validateLinksAndImagesOnPage(page);
+            }
+        }
+    }
+
+    private void validateImages(String page, String imageLocator) throws Exception {
+        //Validate src of all images is accessible
+        int imageIndex = 0;
+        // Validate all the images on the Main Page Content
+        for (Map.Entry<String, String> imageSrc : getUISteps(page).getAttributeValueFromAllClickElement(imageLocator, "src").entrySet()) {
+            logger.info("Validating Image " + ++imageIndex + " of " + getDriver().getCurrentUrl() + " : " + imageSrc.getKey());
+            if (imageSrc.getKey() != "") {
+                RestAssured.given().
+                        urlEncodingEnabled(false).
+                        when().get(imageSrc.getValue()).
+                        then().assertThat().statusCode(200);
+                getUISteps(page).scrollToClickElementXCoordinate("Main_Page_Image_PlaceHolder", imageSrc.getKey());
+                getUISteps(page).assertImagePresent("Main_Page_Image_PlaceHolder", imageSrc.getKey());
             } else {
                 fail("src tag of the image is blank or contains full static URL");
             }

@@ -120,9 +120,9 @@ public class Text extends PageObject {
         return text;
     }
 
-    public List<WebElement> getWebElement(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath) throws Exception {
+    public List<WebElement> getWebElements(final String field, String fieldReplacementValue, final String beanFileName, final String beanPath, final boolean raiseErrorifUnavailable) throws Exception {
         WebElementLocator elementLocator = WebElementLocator.getInstance();
-        WebElement element = elementLocator.locateElement(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
+        WebElement element = elementLocator.locateElement(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), raiseErrorifUnavailable);
         List<WebElement> elementsFound = element.findElements(net.serenitybdd.core.annotations.findby.By.xpath(elementLocator.getElementPath(field, beanFileName, beanPath)));
         return elementsFound;
     }

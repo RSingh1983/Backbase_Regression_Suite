@@ -148,6 +148,13 @@
             <element_locator_value>media-youtube-sxc8dttgwmu</element_locator_value>
         </selector>
 
+        <!-- Selectors for getting all the visible hyperlinks on the page-->
+        <selector>
+            <keyword>All_Hyperlinks</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//section[@id='block-system-main']//a[not(ancestor-or-self::*[(contains(@class, 'hide'))]) and not(ancestor-or-self::*[(contains(@class, 'field-label-hidden'))])]</element_locator_value>
+        </selector>
+
     </Element>
 
 </UIElements>

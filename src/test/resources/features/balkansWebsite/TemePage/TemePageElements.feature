@@ -1,5 +1,5 @@
 @regression @temePage
-Feature: Interaktivno Page Links and UI Elements Validations
+Feature: Teme Page Links and UI Elements Validations
 
   @temePageUIElements
   Scenario: Teme Page - Validation of UI Elements
