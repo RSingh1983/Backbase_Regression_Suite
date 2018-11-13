@@ -308,7 +308,7 @@ public class HomePage extends PageObject {
             logger.info("Text of Link on index " + articleIndex + " is: " + linkText);
 
             homePageSteps.click_the_element("SearchButton");
-            homePageSteps.type_the_value_and_enter(linkText.split(":").length >=2 ? linkText.split(":")[1].replaceAll("\\?+$", ""): linkText.split(":")[0].replaceAll("\\?+$",""),"Article_Search_TextBox");
+            homePageSteps.type_the_value_and_enter(linkText.split(":").length >=2 ? linkText.split(":")[1].replaceAll("\\?+$", "").split(",")[0]: linkText.split(":")[0].replaceAll("\\?+$","").split(",")[0],"Article_Search_TextBox");
 
             ArrayList<String> searchResults = new ArrayList<>();
             for (String searchResult: homePageSteps.getTextFromMultipleElements("Article_SearchResults", "")) {
