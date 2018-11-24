@@ -25,7 +25,7 @@
     <!-- Define the Bintray repos for convenience -->
     <repositories>
         <repository>
-            <id>release-repo</id>
+            <id>releases</id>
             <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
         </repository>
         <repository>
@@ -36,7 +36,7 @@
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>release-repo</id>
+            <id>releases</id>
             <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
         </pluginRepository>
         <pluginRepository>
