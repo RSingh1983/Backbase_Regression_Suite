@@ -25,11 +25,6 @@
     <!-- Define the Bintray repos for convenience -->
     <repositories>
         <repository>
-            <id>repo</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
-            <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
-        </repository>
-        <repository>
             <id>serenity</id>
             <name>bintray</name>
             <url>http://dl.bintray.com/serenity/maven</url>
@@ -40,6 +35,10 @@
             <id>serenity</id>
             <name>bintray-plugins</name>
             <url>http://dl.bintray.com/serenity/maven</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>repo</id>
+            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
         </pluginRepository>
     </pluginRepositories>
 
