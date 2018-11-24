@@ -17,7 +17,8 @@ import java.util.Properties;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber.json","rerun:rerun.txt"},
+        plugin={"html:target/cucumber-html-report",
+                "json:target/cucumber.json"},
         tags = {"@regression"},
         features = "src/test/resources/features"
 )
