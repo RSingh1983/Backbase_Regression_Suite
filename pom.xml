@@ -26,7 +26,7 @@
     <repositories>
         <repository>
             <id>repo</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/master/releases</url>
+            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
             <releases><enabled>true</enabled><updatePolicy>always</updatePolicy></releases>
         </repository>
         <repository>
