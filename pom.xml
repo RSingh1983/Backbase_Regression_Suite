@@ -169,11 +169,11 @@
             <version>1.9.13</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.aljazeera.maven</groupId>
-            <artifactId>json-merge-maven-plugin</artifactId>
-            <version>1.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.aljazeera.maven</groupId>-->
+            <!--<artifactId>json-merge-maven-plugin</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
 
 
     </dependencies>
