@@ -36,7 +36,7 @@
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>repo</id>
+            <id>release-repo</id>
             <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
         </pluginRepository>
         <pluginRepository>
