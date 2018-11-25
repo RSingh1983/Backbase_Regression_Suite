@@ -11,6 +11,7 @@
     <name>Balkans Website Automation Test using Cucumber and Serenity BDD</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <env>live</env>
         <parallelTestCount>1</parallelTestCount>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,8 +26,14 @@
     <!-- Define the Bintray repos for convenience -->
     <repositories>
         <repository>
-            <id>releases</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
+            <id>QE-Maven-Repository</id>
+            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/master</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>serenity</id>
@@ -36,8 +43,14 @@
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>releases</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master/releases</url>
+            <id>QE-Maven-Repository</id>
+            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/master</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
         <pluginRepository>
             <id>serenity</id>
@@ -176,7 +189,7 @@
         <dependency>
             <groupId>org.aljazeera.maven</groupId>
             <artifactId>json-merge-maven-plugin</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
 
 
@@ -334,9 +347,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.aljazeera.maven</groupId>
+                <groupId>org.aljazeera</groupId>
                 <artifactId>json-merge-maven-plugin</artifactId>
-                <version>1.0</version>
+                <version>1.0.0</version>
                 <configuration>
                     <inputFolder>target/cucumber-parallel</inputFolder>
                     <outputFile>cucumber.json</outputFile>
