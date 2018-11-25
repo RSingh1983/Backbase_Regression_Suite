@@ -25,16 +25,16 @@
 
     <!-- Define the Bintray repos for convenience -->
     <repositories>
-        <repository>
-            <id>QE-Maven-Repository</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/master</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+        <!--<repository>-->
+            <!--<id>aljazeera-releases</id>-->
+            <!--<url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
         <repository>
             <id>serenity</id>
             <name>bintray</name>
@@ -42,16 +42,16 @@
         </repository>
     </repositories>
     <pluginRepositories>
-        <pluginRepository>
-            <id>QE-Maven-Repository</id>
-            <url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/master</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
+        <!--<pluginRepository>-->
+            <!--<id>aljazeera-releases</id>-->
+            <!--<url>https://github.com/ALJAZEERAPLUS/QE-Maven-Repository/tree/master</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</pluginRepository>-->
         <pluginRepository>
             <id>serenity</id>
             <name>bintray-plugins</name>
@@ -186,11 +186,11 @@
             <version>1.9.13</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.aljazeera.maven</groupId>
-            <artifactId>json-merge-maven-plugin</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.aljazeera</groupId>-->
+            <!--<artifactId>json-merge-maven-plugin</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
 
 
     </dependencies>
@@ -346,24 +346,24 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.aljazeera</groupId>
-                <artifactId>json-merge-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <inputFolder>target/cucumber-parallel</inputFolder>
-                    <outputFile>cucumber.json</outputFile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>merge-json-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>mergeJSON</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.aljazeera</groupId>-->
+                <!--<artifactId>json-merge-maven-plugin</artifactId>-->
+                <!--<version>1.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<inputFolder>target/cucumber-parallel</inputFolder>-->
+                    <!--<outputFile>cucumber.json</outputFile>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>merge-json-reports</id>-->
+                        <!--<phase>post-integration-test</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>mergeJSON</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
