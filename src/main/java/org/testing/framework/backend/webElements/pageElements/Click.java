@@ -259,6 +259,25 @@ public class Click extends PageObject {
 //        }
 //    }
 
+    public String getCSSValue(final String field, String fieldReplacementValue, String cssKey, final String beanFileName, final String beanPath) throws Exception {
+
+        String cssValue = "";
+
+        // Locate the passed element
+        WebElementLocator elementLocator = WebElementLocator.getInstance();
+        WebElement elementFound = elementLocator.locateElement(field, fieldReplacementValue, LoadProjectProperties.getStringProperty(LoadProjectProperties.REPLACE_CHARACTER), beanFileName, beanPath, getDriver(), true);
+
+        logger.info("");
+        // If the element has been found
+        if (elementFound != null) {
+
+            cssValue = elementFound.getCssValue(cssKey);
+
+        }
+        return cssValue;
+
+    }
+
     public Boolean wait_the_element(final String keyword, final String beanFileName, final String beanPath, final boolean raiseErrorIfUnavailable)
             throws Exception {
         Boolean flag = false;
