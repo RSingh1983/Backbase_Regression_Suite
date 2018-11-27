@@ -1,3 +1,4 @@
+<settings>
 <servers>
     <server>
         <id>qe-maven-bucket-release</id>
@@ -5,3 +6,4 @@
         <password>${iam-user-secret-key}</password>
     </server>
 </servers>
+</settings>
