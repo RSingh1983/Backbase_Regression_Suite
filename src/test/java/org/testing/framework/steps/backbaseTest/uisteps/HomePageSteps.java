@@ -1,4 +1,4 @@
-package org.testing.framework.steps.balkansWebsite.uisteps;
+package org.testing.framework.steps.backbaseTest.uisteps;
 
 import net.thucydides.core.pages.Pages;
 import org.testing.framework.model.uiModels.BeanFilePath;
@@ -9,14 +9,14 @@ import javax.annotation.Resource;
 public class HomePageSteps extends UISteps {
 
     @Resource
-    private BeanFilePath balkansWebsiteHomePageBeanFilePath;
+    private BeanFilePath homePageBeanFilePath;
 
     public HomePageSteps(Pages pages) {
         super(pages);
     }
 
     public String getBeanFilePath() {
-        return balkansWebsiteHomePageBeanFilePath.getBeanFilePath();
+        return homePageBeanFilePath.getBeanFilePath();
     }
 }
 

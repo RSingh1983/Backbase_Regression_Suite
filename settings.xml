@@ -1,9 +1,0 @@
-<settings>
-<servers>
-    <server>
-        <id>qe-maven-bucket-release</id>
-        <username>${iam-user-access-key-id}</username>
-        <password>${iam-user-secret-key}</password>
-    </server>
-</servers>
-</settings>

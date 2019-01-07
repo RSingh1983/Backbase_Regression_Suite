@@ -220,11 +220,11 @@ public class WebElementLocator {
             } catch (Exception e) {
 
                 LogEntries logEntries = getDriver().manage().logs().get(LogType.BROWSER);
-                logger.error("***********************************************Logs from Browser ***************************************************************************************");
-                for (LogEntry entry : logEntries) {
-                    logger.error(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
-                }
-                logger.error("*********************************************************************************************************************************************************");
+//                logger.error("***********************************************Logs from Browser ***************************************************************************************");
+//                for (LogEntry entry : logEntries) {
+//                    logger.error(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+//                }
+//                logger.error("*********************************************************************************************************************************************************");
 
                 // for debugging purpose, list element that matches the debug selector
                 if(selector.getDebugSelector() != null) {

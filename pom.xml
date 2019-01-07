@@ -3,18 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>aljazeera.test.automation</groupId>
-    <artifactId>balkans-webtests</artifactId>
+    <groupId>backbase.test.automation</groupId>
+    <artifactId>webtests</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Balkans Website Automation Test using Cucumber and Serenity BDD</name>
+    <name>Backbase Automation Test using Cucumber and Serenity BDD</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <env>live</env>
-        <parallelTestCount>1</parallelTestCount>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <serenity.version>1.9.45</serenity.version>
         <serenity.maven.version>1.9.45</serenity.maven.version>
         <serenity.cucumber.version>1.9.15</serenity.cucumber.version>
@@ -26,20 +25,12 @@
     <!-- Define the Bintray repos for convenience -->
     <repositories>
         <repository>
-            <id>qe-maven-bucket-release</id>
-            <url>s3://jenkins-build-artifactory/release</url>
-        </repository>
-        <repository>
             <id>serenity</id>
             <name>bintray</name>
             <url>http://dl.bintray.com/serenity/maven</url>
         </repository>
     </repositories>
     <pluginRepositories>
-        <pluginRepository>
-            <id>qe-maven-bucket-release</id>
-            <url>s3://jenkins-build-artifactory/release</url>
-        </pluginRepository>
         <pluginRepository>
             <id>serenity</id>
             <name>bintray-plugins</name>
@@ -166,13 +157,6 @@
             <version>1.9.13</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.aljazeera</groupId>
-            <artifactId>json-merge-maven-plugin</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-
     </dependencies>
     <build>
         <resources>
@@ -249,19 +233,12 @@
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.20</version>
-                <!--<configuration>-->
-                    <!--<parallel>classes</parallel>-->
-                    <!--<threadCount>${parallelTestCount}</threadCount>-->
-                    <!--<perCoreThreadCount>false</perCoreThreadCount>-->
-                <!--</configuration>-->
+                <version>2.19.1</version>
                 <configuration>
-                    <forkCount>${parallelTestCount}</forkCount>
-                    <reuseForks>false</reuseForks>
-                    <argLine>-Xmx4096m -XX:MaxPermSize=2048m</argLine>
                     <includes>
-                        <include>**/Parallel*IT.class</include>
+                        <include>**/*.java</include>
                     </includes>
+                    <argLine>-Xmx512m</argLine>
                 </configuration>
                 <executions>
                     <execution>
@@ -269,28 +246,6 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.github.temyers</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>4.2.0</version>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <glue>
-                                <package>org.testing.framework.cucumber</package>
-                            </glue>
-                            <parallelScheme>FEATURE</parallelScheme>
-                            <customVmTemplate>src/test/resources/cucumber-serenity-runner.vm</customVmTemplate>
-                            <format>json,rerun</format>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -330,24 +285,6 @@
                         <phase>post-integration-test</phase>
                         <goals>
                             <goal>aggregate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.aljazeera</groupId>
-                <artifactId>json-merge-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <inputFolder>target/cucumber-parallel</inputFolder>
-                    <outputFile>cucumber.json</outputFile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>merge-json-reports</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>mergeJSON</goal>
                         </goals>
                     </execution>
                 </executions>

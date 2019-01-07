@@ -14,51 +14,18 @@
 		</property>
 		<property name="urlMap">
 			<map merge="false">
-				<entry key="BALKANS_URL" value="${balkans.url}"/>
+				<entry key="COMPUTER_DATABASE_WEB_URL" value="${backbase.computerdatabase.weburl}"/>
 			</map>
 		</property>
 	</bean>
 
 
 	<!-- These beans create the links to the xml file to be used in the locations of elements -->
-	<bean id="balkansWebsiteHomePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+	<bean id="homePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
 		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/HomePage.xml"/>
 	</bean>
 
-	<bean id="balkansWebsiteVijestiPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VijestiPage.xml"/>
+	<bean id="addUpdateComputerPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
+		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/AddUpdateComputerPage.xml"/>
 	</bean>
-
-	<bean id="balkansWebsiteMišljenjaPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/MišljenjaPage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteProgramiPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/ProgramiPage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteTemePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/TemePage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteVideoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VideoPage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteBlogPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/BlogPage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteInteraktivnoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/InteraktivnoPage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteVrijemePageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/VrijemePage.xml"/>
-	</bean>
-
-	<bean id="balkansWebsiteUživoPageBeanFilePath" class="org.testing.framework.model.uiModels.BeanFilePath">
-		<property name="beanFilePath" value="${project.build.outputDirectory}/beans/balkansWebsite/uiBeans/UživoPage.xml"/>
-	</bean>
-
 </beans>

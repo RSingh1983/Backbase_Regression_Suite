@@ -39,7 +39,6 @@ public abstract class UISteps extends AuatSteps {
     Select selectWebElement;
     Text textWebElement;
     Url urlWebElement;
-    Table tableWebElement;
 
     GeneralElementValidations generalElementValidations;
     ImageValidations imageValidations;
@@ -53,7 +52,6 @@ public abstract class UISteps extends AuatSteps {
         inputWebElement = getPages().get(Input.class);
         javaScriptWebElement = getPages().get(JavaScript.class);
         selectWebElement = getPages().get(Select.class);
-        tableWebElement = getPages().get(Table.class);
         textWebElement = getPages().get(Text.class);
         urlWebElement = getPages().get(Url.class);
 
@@ -77,14 +75,6 @@ public abstract class UISteps extends AuatSteps {
     public void doubleClick(String element) throws Exception {
         clickWebElement.doubleClick(element, getBeanFilePath(), webElementsModel.getClickSelector(), true);
     }
-
-
-    @Step
-    public Integer getTableSize(String tableName) throws Exception {
-        Integer tableSize = tableWebElement.getTableSize(tableName, getBeanFilePath(), webElementsModel.getTextSelector());
-        return tableSize;
-    }
-
 
     @Step
     public boolean checkIfElementPresent(String field) throws Exception {
@@ -358,6 +348,11 @@ public abstract class UISteps extends AuatSteps {
     }
 
     @Step
+    public String getAttributeValueFromTextElement(String field, String attribute) throws Exception {
+        return textWebElement.getAttributeValueFromElement(field, "", attribute, getBeanFilePath(), webElementsModel.getTextSelector());
+    }
+
+    @Step
     public String getAttributeValueFromClickElement(String field, String fieldReplacementValue, String attribute) throws Exception {
         return textWebElement.getAttributeValueFromElement(field, fieldReplacementValue, attribute, getBeanFilePath(), webElementsModel.getClickSelector());
     }
@@ -448,6 +443,13 @@ public abstract class UISteps extends AuatSteps {
         inputWebElement.input_the_element(value, field, getBeanFilePath(), webElementsModel.getInputSelector());
     }
 
+    public void type_or_select_the_value(String value, String field) throws Exception {
+        if (field.toLowerCase().contains("select"))
+            select_value(value,field);
+        else
+            type_the_value(value,field);
+    }
+
     @Step
     public void type_the_value(String value, String field, String fieldReplacementValue) throws Exception {
         inputWebElement.input_the_element(value, field, fieldReplacementValue, getBeanFilePath(), webElementsModel.getInputSelector());
@@ -513,20 +515,6 @@ public abstract class UISteps extends AuatSteps {
     public void untick_the_checkbox_and_check_alert(String field) throws Exception {
         checkBoxWebElement.untick_the_checkbox(field, getBeanFilePath(), webElementsModel.getInputSelector());
         javaScriptWebElement.isJavascriptAlert("", true);
-    }
-
-    @Step
-    public Integer getTableSize(String tableName, String rowidentifier) throws Exception {
-        Integer tableSize = tableWebElement.getTableSize(tableName, rowidentifier, getBeanFilePath(), webElementsModel.getTextSelector());
-
-        return tableSize;
-    }
-
-    @Step
-    public ArrayList<HashMap<String, String>> getTableData(String tableName) throws Exception {
-        ArrayList<HashMap<String, String>> tableData = tableWebElement.getTableData(tableName, getBeanFilePath(),
-                webElementsModel.getTextSelector());
-        return tableData;
     }
 
     @Step
@@ -602,49 +590,6 @@ public abstract class UISteps extends AuatSteps {
     @Step
     public void assert_checkboxfield_value(boolean checked, String field) throws Exception {
         checkBoxWebElement.isCheckboxChecked(checked, field, getBeanFilePath(), webElementsModel.getInputSelector());
-    }
-
-    @Step
-    public void assert_ordered_table(String tableName, int colNum, DisplayOrderType orderType) throws Exception {
-        tableWebElement.isTableDataPresentedInOrder(tableName, colNum, orderType, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_alt_text_ordered_table(String tableName, int colNum, DisplayOrderType orderType) throws Exception {
-        tableWebElement.isTableDataPresentedInAltTextOrder(tableName, colNum, orderType, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_table_size(String tableName, int expectedRowCount, String rowidentifier) throws Exception {
-        tableWebElement.isTableSizeCorrect(tableName, rowidentifier, expectedRowCount, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_table_cell_element(String tableName, int rowNumber, int colNumber, String expectedElement) throws Exception {
-        tableWebElement.assertTableCellElement(tableName, rowNumber, colNumber, expectedElement, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_table_column_element(String tableName, String rowIdentifier, int colNumber, String expectedElement) throws Exception {
-        tableWebElement.assertTableColumnElement(tableName, rowIdentifier, colNumber, expectedElement, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_text_in_multiple_columns_of_table(String tableName, String rowIdentifier, String columnNumbers, String expectedElement) throws Exception {
-        tableWebElement.assertTextInMultipleColumnsOfTable(tableName, rowIdentifier, columnNumbers, expectedElement, getBeanFilePath(), webElementsModel.getTextSelector());
-
-    }
-
-
-    @Step
-    public void assert_date_range_in_table_date(String tableName, String rowIdentifier, int colNumber, String datefrom, String dateto) throws Exception {
-
-        tableWebElement.assertDateInRange(tableName, rowIdentifier, colNumber, datefrom, dateto, getBeanFilePath(), webElementsModel.getTextSelector());
-    }
-
-    @Step
-    public void assert_range_in_between(String tableName, double minvalue, double maxvalue, String rowIdentifier, int colNumber) throws Exception {
-        tableWebElement.assertRangeInBetween(tableName, minvalue, maxvalue, rowIdentifier, colNumber, getBeanFilePath(), webElementsModel.getTextSelector());
     }
 
     @Step
@@ -868,6 +813,16 @@ public abstract class UISteps extends AuatSteps {
     public String getColorFromElement(String field, String fieldReplacementValue) throws Exception {
         return textWebElement.getColorFromElement(field, fieldReplacementValue, getBeanFilePath(),
                 webElementsModel.getTextSelector());
+    }
+
+    @Step
+    public String getCSSValueFromElement(String field, String fieldReplacementValue) throws Exception {
+        if (field.toLowerCase().contains("select"))
+            return javaScriptWebElement.retrieveCssValuewithReplacement(field, fieldReplacementValue, "color", getBeanFilePath(),
+                    webElementsModel.getComboSelector());
+        else
+            return javaScriptWebElement.retrieveCssValuewithReplacement(field, fieldReplacementValue, "color", getBeanFilePath(),
+                webElementsModel.getInputSelector());
     }
 
     @Step

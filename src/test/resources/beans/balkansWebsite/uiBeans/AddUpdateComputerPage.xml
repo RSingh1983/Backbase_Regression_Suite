@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<UIElements>
+
+    <Element type="input">
+
+        <selector>
+            <keyword>ComputerName</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>name</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>IntroducedDate</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>introduced</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>DiscontinuedDate</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>discontinued</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="combo">
+
+        <selector>
+            <keyword>Company_Selected</keyword>
+            <element_locator_type>id</element_locator_type>
+            <element_locator_value>company</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="click">
+
+        <selector>
+            <keyword>Create_Computer_Button</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//input[@type='submit' and @value='Create this computer']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Cancel_Create_Computer_Button</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//a[@href='/computers' and text()='Cancel']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Save_Updated_Computer_Button</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//input[@type='submit' and @value='Save this computer']</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Delete_Computer_Button</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//input[@type='submit' and @value='Delete this computer']</element_locator_value>
+        </selector>
+
+    </Element>
+
+    <Element type="text">
+
+        <selector>
+            <keyword>ComputerName</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//label[@for='name']/parent::div</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>IntroducedDate</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//label[@for='introduced']/parent::div</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>DiscontinuedDate</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//label[@for='discontinued']/parent::div</element_locator_value>
+        </selector>
+
+        <selector>
+            <keyword>Company_Selected</keyword>
+            <element_locator_type>xpath</element_locator_type>
+            <element_locator_value>//label[@for='company']/parent::div</element_locator_value>
+        </selector>
+
+    </Element>
+
+</UIElements>
